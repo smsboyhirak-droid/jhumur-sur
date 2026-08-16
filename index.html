@@ -4,202 +4,567 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ঝুমুর সুর 🎵</title>
+<title>ঝুমুর সুর | মাটির গন্ধে, বাংলার সুরে</title>
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
 }
 
-body {
-  font-family: Arial, "Noto Sans Bengali", sans-serif;
-  background: #0f172a;
-  color: white;
-  min-height: 100vh;
-  padding-bottom: 150px;
+html{
+  scroll-behavior:smooth;
 }
 
-header {
-  background: #111827;
-  padding: 18px;
-  text-align: center;
-  border-bottom: 1px solid #334155;
-  position: sticky;
-  top: 0;
-  z-index: 10;
+body{
+  font-family:Arial,"Noto Sans Bengali","Noto Sans",sans-serif;
+  background:#080807;
+  color:#fff;
+  min-height:100vh;
+  padding-bottom:155px;
 }
 
-header h1 {
-  font-size: 25px;
-  color: #fbbf24;
+/* ================= HEADER ================= */
+
+header{
+  height:92px;
+  background:#080807;
+  border-bottom:1px solid #3b2b15;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 5%;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
-header p {
-  margin-top: 5px;
-  color: #cbd5e1;
-  font-size: 14px;
+.logo{
+  display:flex;
+  align-items:center;
+  gap:12px;
 }
 
-.container {
-  max-width: 650px;
-  margin: auto;
-  padding: 20px 15px;
+.logo-icon{
+  font-size:40px;
+  color:#f5b62b;
 }
 
-.welcome {
-  text-align: center;
-  padding: 25px 10px;
+.logo-text h1{
+  color:#f5b62b;
+  font-size:30px;
+  line-height:1;
+  font-weight:800;
 }
 
-.welcome h2 {
-  font-size: 28px;
-  margin-bottom: 8px;
+.logo-text p{
+  color:#cfc7b9;
+  font-size:14px;
+  margin-top:7px;
 }
 
-.welcome p {
-  color: #cbd5e1;
+nav{
+  display:flex;
+  gap:34px;
+  align-items:center;
 }
 
-.song-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+nav a{
+  color:#ddd7cc;
+  text-decoration:none;
+  font-size:17px;
+  padding:32px 4px 26px;
+  border-bottom:3px solid transparent;
+  transition:.25s;
 }
 
-.song {
-  background: #1e293b;
-  border: 1px solid #334155;
-  border-radius: 14px;
-  padding: 15px;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  cursor: pointer;
-  transition: 0.2s;
+nav a:hover,
+nav a.active{
+  color:#f5b62b;
+  border-bottom-color:#f5b62b;
 }
 
-.song:hover {
-  background: #273449;
+/* ================= HERO ================= */
+
+.hero{
+  min-height:760px;
+  position:relative;
+  overflow:hidden;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(0,0,0,.90) 0%,
+      rgba(0,0,0,.60) 40%,
+      rgba(0,0,0,.18) 75%,
+      rgba(0,0,0,.40) 100%
+    ),
+    url("https://images.unsplash.com/photo-1514979587843-6b3a7b3b5e8d?auto=format&fit=crop&w=1800&q=85")
+    center/cover no-repeat;
+
+  display:flex;
+  align-items:center;
 }
 
-.song.active {
-  border-color: #fbbf24;
-  background: #292b32;
+.hero:after{
+  content:"";
+  position:absolute;
+  left:-5%;
+  right:-5%;
+  bottom:-75px;
+  height:150px;
+  border-top:3px solid #f5b62b;
+  border-radius:50%;
+  background:#080807;
 }
 
-.song-number {
-  width: 40px;
-  height: 40px;
-  background: #fbbf24;
-  color: #111827;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-weight: bold;
+.hero-content{
+  position:relative;
+  z-index:2;
+  width:90%;
+  max-width:1250px;
+  margin:auto;
+  padding:70px 20px;
 }
 
-.song-info {
-  flex: 1;
+.hero-small{
+  color:#f5b62b;
+  font-size:17px;
+  letter-spacing:3px;
+  margin-bottom:15px;
 }
 
-.song-info h3 {
-  font-size: 16px;
+.hero h2{
+  font-family:Georgia,"Noto Serif Bengali",serif;
+  font-size:clamp(58px,8vw,105px);
+  line-height:1;
+  max-width:650px;
+  margin-bottom:25px;
+  text-shadow:0 8px 30px rgba(0,0,0,.8);
 }
 
-.song-info p {
-  font-size: 12px;
-  color: #94a3b8;
-  margin-top: 4px;
+.hero h2 span{
+  color:#f5b62b;
 }
 
-.play-small {
-  font-size: 22px;
+.hero-subtitle{
+  font-family:Georgia,"Noto Serif Bengali",serif;
+  font-size:28px;
+  color:#eee;
+  margin-bottom:35px;
 }
 
-.player {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  background: #111827;
-  border-top: 1px solid #334155;
-  padding: 15px;
-  z-index: 20;
+.listen-btn{
+  border:0;
+  background:#f5b62b;
+  color:#111;
+  padding:17px 34px;
+  border-radius:40px;
+  font-size:20px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.25s;
+  box-shadow:0 10px 35px rgba(245,182,43,.25);
 }
 
-.player-inner {
-  max-width: 650px;
-  margin: auto;
+.listen-btn:hover{
+  transform:translateY(-3px);
+  box-shadow:0 15px 45px rgba(245,182,43,.4);
 }
 
-.now-playing {
-  text-align: center;
-  color: #fbbf24;
-  font-weight: bold;
-  margin-bottom: 10px;
+/* ================= CULTURE CARD ================= */
+
+.container{
+  width:92%;
+  max-width:1200px;
+  margin:auto;
 }
 
-.progress-area {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 11px;
-  color: #94a3b8;
+.culture-card{
+  margin-top:90px;
+  min-height:220px;
+  border:1px solid #4b3517;
+  border-radius:25px;
+  overflow:hidden;
+
+  background:
+    linear-gradient(90deg,rgba(10,9,7,.98),rgba(15,12,8,.75)),
+    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1200&q=80")
+    center/cover;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:40px 55px;
+  box-shadow:0 20px 60px rgba(0,0,0,.3);
 }
 
-input[type="range"] {
-  flex: 1;
-  accent-color: #fbbf24;
+.culture-text{
+  max-width:600px;
 }
 
-.controls {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 22px;
-  margin-top: 10px;
+.lotus{
+  font-size:48px;
+  color:#f5b62b;
+  margin-bottom:12px;
 }
 
-.controls button {
-  border: none;
-  background: #334155;
-  color: white;
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  font-size: 19px;
-  cursor: pointer;
+.culture-text h3{
+  color:#f5b62b;
+  font-size:25px;
+  margin-bottom:12px;
 }
 
-.controls .main-btn {
-  width: 55px;
-  height: 55px;
-  background: #fbbf24;
-  color: #111827;
-  font-size: 23px;
+.culture-text p{
+  color:#ddd5c8;
+  font-size:20px;
+  line-height:1.8;
 }
 
-.volume {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
+.culture-photo{
+  width:330px;
+  height:145px;
+  border-radius:18px;
+  background:
+    linear-gradient(90deg,rgba(0,0,0,.1),rgba(0,0,0,.25)),
+    url("https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80")
+    center/cover;
 }
 
-.volume span {
-  font-size: 14px;
+/* ================= PLAYER ================= */
+
+.player{
+  position:fixed;
+  left:25px;
+  right:25px;
+  bottom:20px;
+  min-height:105px;
+  z-index:2000;
+
+  background:rgba(15,13,10,.97);
+  border:1px solid #d69a20;
+  border-radius:25px;
+
+  display:flex;
+  align-items:center;
+  gap:20px;
+  padding:16px 22px;
+
+  box-shadow:
+    0 20px 60px rgba(0,0,0,.7),
+    0 0 25px rgba(245,182,43,.08);
 }
 
-@media (max-width: 400px) {
-  .controls {
-    gap: 14px;
+.album{
+  width:80px;
+  height:80px;
+  flex-shrink:0;
+  border-radius:15px;
+  overflow:hidden;
+
+  background:
+    url("https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=400&q=80")
+    center/cover;
+}
+
+.song-info{
+  width:220px;
+  min-width:180px;
+}
+
+.song-title{
+  color:#fff;
+  font-size:16px;
+  margin-bottom:7px;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
+}
+
+.song-artist{
+  color:#f5b62b;
+  font-size:14px;
+}
+
+.player-middle{
+  flex:1;
+  min-width:150px;
+}
+
+.progress-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  font-size:12px;
+  color:#ddd;
+}
+
+input[type="range"]{
+  accent-color:#f5b62b;
+  cursor:pointer;
+}
+
+.progress{
+  flex:1;
+}
+
+.controls{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:24px;
+  margin-top:9px;
+}
+
+.control{
+  border:0;
+  background:none;
+  color:#eee;
+  font-size:23px;
+  cursor:pointer;
+  transition:.2s;
+}
+
+.control:hover{
+  color:#f5b62b;
+  transform:scale(1.1);
+}
+
+.play{
+  width:58px;
+  height:58px;
+  border-radius:50%;
+  background:#f5b62b;
+  color:#111;
+  font-size:25px;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border:0;
+  cursor:pointer;
+  box-shadow:0 7px 20px rgba(245,182,43,.25);
+}
+
+.play:hover{
+  transform:scale(1.06);
+}
+
+.volume-box{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  width:140px;
+}
+
+.volume-box span{
+  font-size:20px;
+}
+
+.volume{
+  width:100px;
+}
+
+.favorite{
+  color:#f5b62b;
+}
+
+/* ================= FOOTER ================= */
+
+footer{
+  width:92%;
+  max-width:1100px;
+  margin:80px auto 20px;
+
+  padding-top:25px;
+
+  border-top:1px solid #3c2b17;
+
+  display:flex;
+  justify-content:space-between;
+  color:#aaa49b;
+  font-size:16px;
+}
+
+.footer-brand{
+  color:#f5b62b;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:900px){
+
+  header{
+    height:auto;
+    min-height:80px;
+    padding:14px 20px;
   }
 
-  header h1 {
-    font-size: 22px;
+  .logo-text h1{
+    font-size:24px;
+  }
+
+  .logo-icon{
+    font-size:32px;
+  }
+
+  nav{
+    gap:12px;
+  }
+
+  nav a{
+    font-size:14px;
+    padding:22px 2px 16px;
+  }
+
+  .hero{
+    min-height:650px;
+  }
+
+  .hero-content{
+    padding-top:50px;
+  }
+
+  .hero h2{
+    font-size:60px;
+  }
+
+  .hero-subtitle{
+    font-size:22px;
+  }
+
+  .culture-card{
+    padding:30px;
+  }
+
+  .culture-photo{
+    display:none;
+  }
+
+  .player{
+    left:10px;
+    right:10px;
+    bottom:8px;
+    padding:10px;
+    gap:10px;
+  }
+
+  .album{
+    width:62px;
+    height:62px;
+  }
+
+  .song-info{
+    width:150px;
+    min-width:100px;
+  }
+
+  .volume-box{
+    display:none;
+  }
+
+  .controls{
+    gap:12px;
+  }
+
+  .control{
+    font-size:18px;
+  }
+
+  .play{
+    width:50px;
+    height:50px;
+  }
+
+  footer{
+    flex-direction:column;
+    gap:10px;
+    text-align:center;
+  }
+}
+
+@media(max-width:600px){
+
+  header{
+    padding:12px 15px;
+  }
+
+  .logo-text p{
+    display:none;
+  }
+
+  nav{
+    gap:8px;
+  }
+
+  nav a{
+    font-size:12px;
+  }
+
+  .hero{
+    min-height:570px;
+    background-position:center;
+  }
+
+  .hero-content{
+    width:100%;
+    padding:40px 25px;
+  }
+
+  .hero-small{
+    font-size:13px;
+  }
+
+  .hero h2{
+    font-size:48px;
+  }
+
+  .hero-subtitle{
+    font-size:19px;
+  }
+
+  .listen-btn{
+    padding:14px 25px;
+    font-size:17px;
+  }
+
+  .culture-card{
+    margin-top:60px;
+    padding:25px;
+    min-height:180px;
+  }
+
+  .culture-text p{
+    font-size:16px;
+  }
+
+  .culture-text h3{
+    font-size:21px;
+  }
+
+  .song-info{
+    width:115px;
+  }
+
+  .song-title{
+    font-size:13px;
+  }
+
+  .song-artist{
+    font-size:12px;
+  }
+
+  .controls{
+    gap:8px;
+  }
+
+  .control:nth-child(1),
+  .control:nth-child(4){
+    display:none;
+  }
+
+  .progress-row{
+    font-size:10px;
   }
 }
 </style>
@@ -207,82 +572,226 @@ input[type="range"] {
 
 <body>
 
+<!-- ================= HEADER ================= -->
+
 <header>
-  <h1>🎵 ঝুমুর সুর</h1>
-  <p>আপনার পছন্দের গান শুনুন</p>
-</header>
 
-<div class="container">
+  <div class="logo">
+    <div class="logo-icon">♫</div>
 
-  <div class="welcome">
-    <h2>🎶 গানসমূহ</h2>
-    <p>নিচের যেকোনো গান নির্বাচন করুন</p>
+    <div class="logo-text">
+      <h1>ঝুমুর সুর</h1>
+      <p>মাটির গন্ধে, বাংলার সুরে</p>
+    </div>
   </div>
 
-  <div class="song-list" id="songList"></div>
+  <nav>
+    <a href="#" class="active">⌂ হোম</a>
+    <a href="#player">♡ প্রিয় গান</a>
+    <a href="#about">ⓘ আমাদের সম্পর্কে</a>
+  </nav>
 
-</div>
+</header>
 
-<div class="player">
 
-  <div class="player-inner">
+<!-- ================= HERO ================= -->
 
-    <div class="now-playing" id="nowPlaying">
-      কোনো গান নির্বাচন করা হয়নি
+<section class="hero">
+
+  <div class="hero-content">
+
+    <div class="hero-small">
+      ✦ বাংলার লোকসংগীতের আপন ঠিকানা ✦
     </div>
 
-    <div class="progress-area">
-      <span id="currentTime">0:00</span>
+    <h2>
+      ঝুমুর <span>সুর</span>
+    </h2>
+
+    <div class="hero-subtitle">
+      মাটির গন্ধে, বাংলার সুরে
+    </div>
+
+    <button class="listen-btn" onclick="startMusic()">
+      ▶ &nbsp; গান শুনুন
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= CULTURE ================= -->
+
+<main class="container" id="about">
+
+  <section class="culture-card">
+
+    <div class="culture-text">
+
+      <div class="lotus">♧</div>
+
+      <h3>ঝুমুর শুধু গান নয়</h3>
+
+      <p>
+        এটি আমাদের মাটি, আমাদের সংস্কৃতি,
+        আমাদের ভালোবাসা।
+        বাংলার লোকসুরকে আপন করে শুনুন
+        এবং উপভোগ করুন।
+      </p>
+
+    </div>
+
+    <div class="culture-photo"></div>
+
+  </section>
+
+</main>
+
+
+<!-- ================= MUSIC PLAYER ================= -->
+
+<div class="player" id="player">
+
+  <div class="album"></div>
+
+  <div class="song-info">
+
+    <div class="song-title" id="songTitle">
+      গান শুনতে প্রস্তুত
+    </div>
+
+    <div class="song-artist">
+      ঝুমুর সুর
+    </div>
+
+  </div>
+
+
+  <div class="player-middle">
+
+    <div class="progress-row">
+
+      <span id="currentTime">00:00</span>
 
       <input
         type="range"
         id="progress"
+        class="progress"
         min="0"
         max="100"
         value="0"
       >
 
-      <span id="duration">0:00</span>
+      <span id="duration">00:00</span>
+
     </div>
+
 
     <div class="controls">
 
-      <button onclick="previousSong()">⏮</button>
+      <button
+        class="control"
+        onclick="toggleFavorite()"
+        title="প্রিয় গান"
+      >
+        <span id="heart">♡</span>
+      </button>
 
       <button
-        class="main-btn"
-        id="playBtn"
+        class="control"
+        onclick="shuffleSong()"
+        title="Shuffle"
+      >
+        🔀
+      </button>
+
+      <button
+        class="control"
+        onclick="previousSong()"
+        title="Previous"
+      >
+        ⏮
+      </button>
+
+      <button
+        class="play"
+        id="playButton"
         onclick="togglePlay()"
       >
         ▶
       </button>
 
-      <button onclick="nextSong()">⏭</button>
-
-    </div>
-
-    <div class="volume">
-      <span>🔊</span>
-
-      <input
-        type="range"
-        id="volume"
-        min="0"
-        max="1"
-        step="0.01"
-        value="1"
+      <button
+        class="control"
+        onclick="nextSong()"
+        title="Next"
       >
+        ⏭
+      </button>
+
+      <button
+        class="control"
+        onclick="toggleRepeat()"
+        title="Repeat"
+        id="repeatButton"
+      >
+        🔁
+      </button>
+
     </div>
+
+  </div>
+
+
+  <div class="volume-box">
+
+    <span>🔊</span>
+
+    <input
+      type="range"
+      id="volume"
+      class="volume"
+      min="0"
+      max="1"
+      step="0.01"
+      value="0.8"
+    >
 
   </div>
 
 </div>
 
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+  <div>
+    © 2025 <span class="footer-brand">ঝুমুর সুর</span>
+    | সর্বস্বত্ব সংরক্ষিত
+  </div>
+
+  <div>
+    Made by <span class="footer-brand">HirakMahata</span>
+  </div>
+
+</footer>
+
+
+<!-- ================= AUDIO ================= -->
+
 <audio id="audio"></audio>
+
 
 <script>
 
+/* ==========================================
+   তোমার GitHub-এ থাকা গানগুলো
+   ========================================== */
+
 const songs = [
+
   "song1.mp3",
   "song2.mp3",
   "song3.mp3",
@@ -297,100 +806,114 @@ const songs = [
   "song12.mp3",
   "song13.mp3",
   "song14.mp3"
+
 ];
 
-const songList = document.getElementById("songList");
-const audio = document.getElementById("audio");
-const playBtn = document.getElementById("playBtn");
-const nowPlaying = document.getElementById("nowPlaying");
-const progress = document.getElementById("progress");
-const volume = document.getElementById("volume");
-const currentTime = document.getElementById("currentTime");
-const duration = document.getElementById("duration");
 
 let currentSong = 0;
+let isRepeat = false;
 
-function createSongList() {
 
-  songList.innerHTML = "";
+/* ==========================================
+   ELEMENTS
+   ========================================== */
 
-  songs.forEach((song, index) => {
+const audio = document.getElementById("audio");
+const playButton = document.getElementById("playButton");
+const songTitle = document.getElementById("songTitle");
+const progress = document.getElementById("progress");
+const currentTime = document.getElementById("currentTime");
+const duration = document.getElementById("duration");
+const volume = document.getElementById("volume");
 
-    const div = document.createElement("div");
 
-    div.className = "song";
+/* ==========================================
+   TIME FORMAT
+   ========================================== */
 
-    div.innerHTML = `
-      <div class="song-number">${index + 1}</div>
+function formatTime(seconds){
 
-      <div class="song-info">
-        <h3>গান ${index + 1}</h3>
-        <p>${song}</p>
-      </div>
+  if(!Number.isFinite(seconds)){
+    return "00:00";
+  }
 
-      <div class="play-small">▶</div>
-    `;
+  const minutes = Math.floor(seconds / 60);
 
-    div.onclick = () => {
-      loadSong(index);
-      playSong();
-    };
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2,"0");
 
-    songList.appendChild(div);
-
-  });
+  return minutes + ":" + secs;
 
 }
 
-function loadSong(index) {
 
-  currentSong = index;
+/* ==========================================
+   LOAD SONG
+   ========================================== */
+
+function loadSong(){
 
   audio.src = songs[currentSong];
 
-  nowPlaying.innerText =
-    "🎵 এখন চলছে: গান " + (currentSong + 1);
+  /*
+    নম্বর দেখানোর বদলে সুন্দর নাম দেখানো হচ্ছে।
+    পরে চাইলে এখানেই আসল গানের নাম বসানো যাবে।
+  */
 
-  document.querySelectorAll(".song").forEach((song, i) => {
+  songTitle.textContent = "ঝুমুরের সুর";
 
-    song.classList.toggle(
-      "active",
-      i === currentSong
-    );
-
-  });
+  audio.load();
 
 }
 
-function playSong() {
 
-  audio.play();
+/* ==========================================
+   PLAY
+   ========================================== */
 
-  playBtn.innerText = "⏸";
+function playSong(){
+
+  audio.play()
+    .then(() => {
+
+      playButton.textContent = "❚❚";
+
+    })
+    .catch(() => {
+
+      songTitle.textContent =
+        "গান চালু করতে আবার Play চাপুন";
+
+    });
 
 }
 
-function pauseSong() {
+
+/* ==========================================
+   PAUSE
+   ========================================== */
+
+function pauseSong(){
 
   audio.pause();
 
-  playBtn.innerText = "▶";
+  playButton.textContent = "▶";
 
 }
 
-function togglePlay() {
 
-  if (!audio.src) {
+/* ==========================================
+   TOGGLE PLAY
+   ========================================== */
 
-    loadSong(0);
+function togglePlay(){
 
-  }
-
-  if (audio.paused) {
+  if(audio.paused){
 
     playSong();
 
-  } else {
+  }else{
 
     pauseSong();
 
@@ -398,79 +921,177 @@ function togglePlay() {
 
 }
 
-function previousSong() {
 
-  currentSong--;
+/* ==========================================
+   HERO BUTTON
+   ========================================== */
 
-  if (currentSong < 0) {
-    currentSong = songs.length - 1;
-  }
+function startMusic(){
 
-  loadSong(currentSong);
+  document
+    .getElementById("player")
+    .scrollIntoView({
+      behavior:"smooth",
+      block:"center"
+    });
+
+  loadSong();
+
   playSong();
 
 }
 
-function nextSong() {
+
+/* ==========================================
+   NEXT
+   ========================================== */
+
+function nextSong(){
 
   currentSong++;
 
-  if (currentSong >= songs.length) {
+  if(currentSong >= songs.length){
     currentSong = 0;
   }
 
-  loadSong(currentSong);
+  loadSong();
   playSong();
 
 }
 
-function formatTime(seconds) {
 
-  if (isNaN(seconds)) {
-    return "0:00";
+/* ==========================================
+   PREVIOUS
+   ========================================== */
+
+function previousSong(){
+
+  currentSong--;
+
+  if(currentSong < 0){
+    currentSong = songs.length - 1;
   }
 
-  const minutes = Math.floor(seconds / 60);
-
-  const secs = Math.floor(seconds % 60)
-    .toString()
-    .padStart(2, "0");
-
-  return minutes + ":" + secs;
+  loadSong();
+  playSong();
 
 }
 
+
+/* ==========================================
+   SHUFFLE
+   ========================================== */
+
+function shuffleSong(){
+
+  let randomSong;
+
+  do{
+
+    randomSong =
+      Math.floor(Math.random() * songs.length);
+
+  }while(
+    randomSong === currentSong &&
+    songs.length > 1
+  );
+
+  currentSong = randomSong;
+
+  loadSong();
+  playSong();
+
+}
+
+
+/* ==========================================
+   REPEAT
+   ========================================== */
+
+function toggleRepeat(){
+
+  isRepeat = !isRepeat;
+
+  const button =
+    document.getElementById("repeatButton");
+
+  button.style.color =
+    isRepeat ? "#f5b62b" : "#eee";
+
+}
+
+
+/* ==========================================
+   AUTO NEXT
+   ========================================== */
+
+audio.addEventListener("ended", () => {
+
+  if(isRepeat){
+
+    audio.currentTime = 0;
+    playSong();
+
+  }else{
+
+    nextSong();
+
+  }
+
+});
+
+
+/* ==========================================
+   DURATION
+   ========================================== */
+
 audio.addEventListener("loadedmetadata", () => {
 
-  duration.innerText =
+  duration.textContent =
     formatTime(audio.duration);
 
 });
 
+
+/* ==========================================
+   PROGRESS UPDATE
+   ========================================== */
+
 audio.addEventListener("timeupdate", () => {
 
-  if (audio.duration) {
+  if(audio.duration){
 
     progress.value =
       (audio.currentTime / audio.duration) * 100;
 
   }
 
-  currentTime.innerText =
+  currentTime.textContent =
     formatTime(audio.currentTime);
 
 });
 
+
+/* ==========================================
+   SEEK
+   ========================================== */
+
 progress.addEventListener("input", () => {
 
-  if (audio.duration) {
+  if(audio.duration){
 
     audio.currentTime =
-      (progress.value / 100) * audio.duration;
+      (progress.value / 100) *
+      audio.duration;
 
   }
 
 });
+
+
+/* ==========================================
+   VOLUME
+   ========================================== */
 
 volume.addEventListener("input", () => {
 
@@ -478,25 +1099,36 @@ volume.addEventListener("input", () => {
 
 });
 
-audio.addEventListener("play", () => {
 
-  playBtn.innerText = "⏸";
+/* ==========================================
+   FAVORITE
+   ========================================== */
 
-});
+function toggleFavorite(){
 
-audio.addEventListener("pause", () => {
+  const heart =
+    document.getElementById("heart");
 
-  playBtn.innerText = "▶";
+  if(heart.textContent === "♡"){
 
-});
+    heart.textContent = "♥";
 
-audio.addEventListener("ended", () => {
+  }else{
 
-  nextSong();
+    heart.textContent = "♡";
 
-});
+  }
 
-createSongList();
+}
+
+
+/* ==========================================
+   INITIAL
+   ========================================== */
+
+audio.volume = 0.8;
+
+loadSong();
 
 </script>
 
