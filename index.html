@@ -2,307 +2,204 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>ঝুমুর সুর</title>
+<title>ঝুমুর সুর 🎵</title>
 
 <style>
-*{
-  box-sizing:border-box;
-  margin:0;
-  padding:0;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
-body{
-  font-family:Arial,"Noto Sans Bengali",sans-serif;
-  background:#06140b;
-  color:white;
-  padding-bottom:125px;
+body {
+  font-family: Arial, "Noto Sans Bengali", sans-serif;
+  background: #0f172a;
+  color: white;
+  min-height: 100vh;
+  padding-bottom: 150px;
 }
 
-header{
-  height:65px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 20px;
-  background:#071b0e;
-  border-bottom:1px solid #c9a347;
-  position:sticky;
-  top:0;
-  z-index:20;
+header {
+  background: #111827;
+  padding: 18px;
+  text-align: center;
+  border-bottom: 1px solid #334155;
+  position: sticky;
+  top: 0;
+  z-index: 10;
 }
 
-.logo{
-  font-size:25px;
-  font-weight:bold;
+header h1 {
+  font-size: 25px;
+  color: #fbbf24;
 }
 
-.logo span{
-  color:#d9ad4b;
+header p {
+  margin-top: 5px;
+  color: #cbd5e1;
+  font-size: 14px;
 }
 
-.menu{
-  font-size:25px;
-  color:#d9ad4b;
+.container {
+  max-width: 650px;
+  margin: auto;
+  padding: 20px 15px;
 }
 
-.hero{
-  min-height:480px;
-  padding:70px 22px;
-  display:flex;
-  align-items:center;
-
-  background:
-  linear-gradient(
-    90deg,
-    rgba(2,15,7,.95),
-    rgba(3,35,16,.65),
-    rgba(0,0,0,.35)
-  ),
-  url("https://images.unsplash.com/photo-1511497584788-876760111969?auto=format&fit=crop&w=1600&q=85")
-  center/cover;
+.welcome {
+  text-align: center;
+  padding: 25px 10px;
 }
 
-.hero-content{
-  max-width:650px;
+.welcome h2 {
+  font-size: 28px;
+  margin-bottom: 8px;
 }
 
-.hero small{
-  color:#d9ad4b;
-  letter-spacing:2px;
-  font-size:10px;
+.welcome p {
+  color: #cbd5e1;
 }
 
-.hero h1{
-  margin-top:18px;
-  font-family:Georgia,"Noto Serif Bengali",serif;
-  font-size:48px;
-  line-height:1.2;
+.song-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-.hero h1 span{
-  color:#d9ad4b;
+.song {
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 14px;
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  transition: 0.2s;
 }
 
-.hero p{
-  margin-top:20px;
-  color:#c5d0c8;
-  line-height:1.8;
-  font-size:15px;
+.song:hover {
+  background: #273449;
 }
 
-.hero button{
-  margin-top:25px;
-  padding:14px 25px;
-  border:0;
-  border-radius:30px;
-  background:#d9ad4b;
-  color:#111;
-  font-weight:bold;
-  font-size:15px;
+.song.active {
+  border-color: #fbbf24;
+  background: #292b32;
 }
 
-.section{
-  max-width:900px;
-  margin:auto;
-  padding:45px 15px;
+.song-number {
+  width: 40px;
+  height: 40px;
+  background: #fbbf24;
+  color: #111827;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
 }
 
-.label{
-  color:#d9ad4b;
-  font-size:10px;
-  letter-spacing:2px;
+.song-info {
+  flex: 1;
 }
 
-h2{
-  margin-top:8px;
-  font-size:32px;
-  font-family:Georgia,"Noto Serif Bengali",serif;
+.song-info h3 {
+  font-size: 16px;
 }
 
-h2 span{
-  color:#d9ad4b;
+.song-info p {
+  font-size: 12px;
+  color: #94a3b8;
+  margin-top: 4px;
 }
 
-.song{
-  margin-top:13px;
-  padding:13px;
-  border-radius:17px;
-  background:linear-gradient(120deg,#17381f,#0b1c10);
-  border:1px solid rgba(217,173,75,.25);
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
+.play-small {
+  font-size: 22px;
 }
 
-.song.active{
-  border-color:#d9ad4b;
+.player {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: #111827;
+  border-top: 1px solid #334155;
+  padding: 15px;
+  z-index: 20;
 }
 
-.song-left{
-  display:flex;
-  align-items:center;
-  gap:12px;
-  min-width:0;
+.player-inner {
+  max-width: 650px;
+  margin: auto;
 }
 
-.number{
-  width:25px;
-  color:#738479;
-  font-size:11px;
+.now-playing {
+  text-align: center;
+  color: #fbbf24;
+  font-weight: bold;
+  margin-bottom: 10px;
 }
 
-.album{
-  width:52px;
-  height:52px;
-  border-radius:13px;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  background:linear-gradient(145deg,#477b50,#102316);
-  color:#d9ad4b;
-  font-size:23px;
-  flex-shrink:0;
+.progress-area {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #94a3b8;
 }
 
-.info{
-  min-width:0;
+input[type="range"] {
+  flex: 1;
+  accent-color: #fbbf24;
 }
 
-.info h3{
-  font-size:15px;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 22px;
+  margin-top: 10px;
 }
 
-.info p{
-  margin-top:4px;
-  color:#849288;
-  font-size:10px;
+.controls button {
+  border: none;
+  background: #334155;
+  color: white;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 19px;
+  cursor: pointer;
 }
 
-.song button{
-  width:43px;
-  height:43px;
-  border:0;
-  border-radius:50%;
-  background:#d9ad4b;
-  color:#111;
-  font-size:16px;
-  flex-shrink:0;
+.controls .main-btn {
+  width: 55px;
+  height: 55px;
+  background: #fbbf24;
+  color: #111827;
+  font-size: 23px;
 }
 
-.player{
-  position:fixed;
-  bottom:0;
-  left:0;
-  right:0;
-  z-index:50;
-  padding:12px 14px 15px;
-  background:#06170c;
-  border-top:1px solid #c9a347;
-  box-shadow:0 -8px 30px rgba(0,0,0,.5);
+.volume {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
 }
 
-.player-top{
-  display:flex;
-  align-items:center;
-  gap:10px;
+.volume span {
+  font-size: 14px;
 }
 
-.player-art{
-  width:48px;
-  height:48px;
-  border-radius:12px;
-  background:linear-gradient(145deg,#477b50,#102316);
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#d9ad4b;
-  font-size:21px;
-  flex-shrink:0;
-}
-
-.player-info{
-  flex:1;
-  min-width:0;
-}
-
-.player-title{
-  font-size:13px;
-  font-weight:bold;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.player-sub{
-  margin-top:3px;
-  font-size:10px;
-  color:#819086;
-}
-
-.controls{
-  display:flex;
-  gap:4px;
-}
-
-.control{
-  width:38px;
-  height:38px;
-  border:0;
-  border-radius:50%;
-  font-size:15px;
-}
-
-.play,
-.next{
-  background:#d9ad4b;
-  color:#111;
-}
-
-.stop{
-  background:#17291c;
-  color:#d9ad4b;
-  border:1px solid #80652f;
-}
-
-.progress-box{
-  margin-top:8px;
-}
-
-#progress{
-  width:100%;
-  height:5px;
-  accent-color:#d9ad4b;
-}
-
-.time{
-  display:flex;
-  justify-content:space-between;
-  color:#738178;
-  font-size:9px;
-}
-
-@media(max-width:600px){
-
-  .hero{
-    min-height:500px;
+@media (max-width: 400px) {
+  .controls {
+    gap: 14px;
   }
 
-  .hero h1{
-    font-size:40px;
-  }
-
-  .hero p{
-    font-size:14px;
-  }
-
-  .control{
-    width:36px;
-    height:36px;
+  header h1 {
+    font-size: 22px;
   }
 }
 </style>
@@ -311,278 +208,133 @@ h2 span{
 <body>
 
 <header>
-  <div class="logo">
-    ঝুমুর <span>সুর</span>
-  </div>
-
-  <div class="menu">☰</div>
+  <h1>🎵 ঝুমুর সুর</h1>
+  <p>আপনার পছন্দের গান শুনুন</p>
 </header>
 
+<div class="container">
 
-<section class="hero">
-
-  <div class="hero-content">
-
-    <small>
-      JHUMUR • PURULIA • JHARGRAM • KURMALI
-    </small>
-
-    <h1>
-      মাটির গন্ধে,<br>
-      <span>ঝুমুরের সুরে।</span>
-    </h1>
-
-    <p>
-      পুরুলিয়া ও ঝাড়গ্রামের মাটি,
-      অরণ্য আর লোকসংস্কৃতির ঝুমুর গান
-      এক জায়গায়।
-    </p>
-
-    <button onclick="playSong(0)">
-      ▶ গান শুনুন
-    </button>
-
+  <div class="welcome">
+    <h2>🎶 গানসমূহ</h2>
+    <p>নিচের যেকোনো গান নির্বাচন করুন</p>
   </div>
 
-</section>
+  <div class="song-list" id="songList"></div>
 
-
-<section class="section">
-
-  <div class="label">
-    FOLK MUSIC COLLECTION
-  </div>
-
-  <h2>
-    ঝুমুর <span>গান</span>
-  </h2>
-
-  <div id="songList"></div>
-
-</section>
-
+</div>
 
 <div class="player">
 
-  <div class="player-top">
+  <div class="player-inner">
 
-    <div class="player-art">
-      ♪
+    <div class="now-playing" id="nowPlaying">
+      কোনো গান নির্বাচন করা হয়নি
     </div>
 
-    <div class="player-info">
+    <div class="progress-area">
+      <span id="currentTime">0:00</span>
 
-      <div class="player-title" id="playerTitle">
-        কোনো গান চলছে না
-      </div>
+      <input
+        type="range"
+        id="progress"
+        min="0"
+        max="100"
+        value="0"
+      >
 
-      <div class="player-sub" id="playerSub">
-        গান নির্বাচন করুন
-      </div>
-
+      <span id="duration">0:00</span>
     </div>
 
     <div class="controls">
 
+      <button onclick="previousSong()">⏮</button>
+
       <button
-        class="control play"
+        class="main-btn"
         id="playBtn"
-        onclick="togglePlay()">
+        onclick="togglePlay()"
+      >
         ▶
       </button>
 
-      <button
-        class="control next"
-        onclick="nextSong()">
-        ⏭
-      </button>
-
-      <button
-        class="control stop"
-        onclick="stopSong()">
-        ⏹
-      </button>
+      <button onclick="nextSong()">⏭</button>
 
     </div>
 
-  </div>
+    <div class="volume">
+      <span>🔊</span>
 
-
-  <div class="progress-box">
-
-    <input
-      id="progress"
-      type="range"
-      min="0"
-      max="100"
-      value="0">
-
-    <div class="time">
-      <span id="currentTime">0:00</span>
-      <span id="duration">0:00</span>
+      <input
+        type="range"
+        id="volume"
+        min="0"
+        max="1"
+        step="0.01"
+        value="1"
+      >
     </div>
 
   </div>
 
 </div>
 
-
-<audio id="audio" preload="metadata"></audio>
-
+<audio id="audio"></audio>
 
 <script>
 
-/* =====================================
-   তোমার ১৪টা গান
-   IMPORTANT:
-   সব MP3 index.html-এর একই folder-এ আছে
-===================================== */
-
 const songs = [
-
-  {
-    title:"ঝুমুর গান ১",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song1.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ২",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song2.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৩",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song3.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৪",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song4.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৫",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song5.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৬",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song6.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৭",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song7.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৮",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song8.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ৯",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song9.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ১০",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song10.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ১১",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song11.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ১২",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song12.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ১৩",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song13.mp3"
-  },
-
-  {
-    title:"ঝুমুর গান ১৪",
-    subtitle:"লোকসংগীত • ঝুমুর",
-    file:"song14.mp3"
-  }
-
+  "song1.mp3",
+  "song2.mp3",
+  "song3.mp3",
+  "song4.mp3",
+  "song5.mp3",
+  "song6.mp3",
+  "song7.mp3",
+  "song8.mp3",
+  "song9.mp3",
+  "song10.mp3",
+  "song11.mp3",
+  "song12.mp3",
+  "song13.mp3",
+  "song14.mp3"
 ];
 
-
-let currentSong = 0;
-
-const audio = document.getElementById("audio");
 const songList = document.getElementById("songList");
-const playerTitle = document.getElementById("playerTitle");
-const playerSub = document.getElementById("playerSub");
+const audio = document.getElementById("audio");
 const playBtn = document.getElementById("playBtn");
+const nowPlaying = document.getElementById("nowPlaying");
 const progress = document.getElementById("progress");
+const volume = document.getElementById("volume");
 const currentTime = document.getElementById("currentTime");
 const duration = document.getElementById("duration");
 
+let currentSong = 0;
 
-/* গানগুলোর তালিকা তৈরি */
-
-function showSongs(){
+function createSongList() {
 
   songList.innerHTML = "";
 
-  songs.forEach(function(song,index){
+  songs.forEach((song, index) => {
 
     const div = document.createElement("div");
 
     div.className = "song";
-    div.id = "song-" + index;
 
     div.innerHTML = `
+      <div class="song-number">${index + 1}</div>
 
-      <div class="song-left">
-
-        <div class="number">
-          ${String(index+1).padStart(2,"0")}
-        </div>
-
-        <div class="album">
-          ♪
-        </div>
-
-        <div class="info">
-
-          <h3>
-            ${song.title}
-          </h3>
-
-          <p>
-            ${song.subtitle}
-          </p>
-
-        </div>
-
+      <div class="song-info">
+        <h3>গান ${index + 1}</h3>
+        <p>${song}</p>
       </div>
 
-      <button onclick="playSong(${index})">
-        ▶
-      </button>
-
+      <div class="play-small">▶</div>
     `;
+
+    div.onclick = () => {
+      loadSong(index);
+      playSong();
+    };
 
     songList.appendChild(div);
 
@@ -590,173 +342,128 @@ function showSongs(){
 
 }
 
-
-/* গান চালানো */
-
-function playSong(index){
-
-  if(index < 0 || index >= songs.length){
-    return;
-  }
+function loadSong(index) {
 
   currentSong = index;
 
-  const song = songs[index];
+  audio.src = songs[currentSong];
 
-  audio.src = song.file;
+  nowPlaying.innerText =
+    "🎵 এখন চলছে: গান " + (currentSong + 1);
 
-  playerTitle.textContent = song.title;
-  playerSub.textContent = song.subtitle;
+  document.querySelectorAll(".song").forEach((song, i) => {
 
-  document.querySelectorAll(".song")
-    .forEach(function(item){
-      item.classList.remove("active");
-    });
+    song.classList.toggle(
+      "active",
+      i === currentSong
+    );
 
-  const active =
-    document.getElementById("song-" + index);
-
-  if(active){
-    active.classList.add("active");
-  }
-
-  audio.load();
-
-  audio.play()
-    .then(function(){
-
-      playBtn.textContent = "⏸";
-
-    })
-    .catch(function(error){
-
-      console.log(error);
-
-      playBtn.textContent = "▶";
-
-      playerSub.textContent =
-        "গান চালানো যাচ্ছে না";
-
-    });
+  });
 
 }
 
+function playSong() {
 
-/* Play / Pause */
+  audio.play();
 
-function togglePlay(){
-
-  if(!audio.src){
-
-    playSong(0);
-    return;
-
-  }
-
-  if(audio.paused){
-
-    audio.play()
-      .then(function(){
-
-        playBtn.textContent = "⏸";
-
-      })
-      .catch(function(){
-
-        playerSub.textContent =
-          "গান চালানো যাচ্ছে না";
-
-      });
-
-  }else{
-
-    audio.pause();
-
-    playBtn.textContent = "▶";
-
-  }
+  playBtn.innerText = "⏸";
 
 }
 
-
-/* Stop */
-
-function stopSong(){
+function pauseSong() {
 
   audio.pause();
 
-  audio.currentTime = 0;
-
-  playBtn.textContent = "▶";
-
-  progress.value = 0;
-
-  currentTime.textContent = "0:00";
-
-  playerSub.textContent =
-    "গান বন্ধ করা হয়েছে";
+  playBtn.innerText = "▶";
 
 }
 
+function togglePlay() {
 
-/* Next */
+  if (!audio.src) {
 
-function nextSong(){
-
-  currentSong++;
-
-  if(currentSong >= songs.length){
-
-    currentSong = 0;
+    loadSong(0);
 
   }
 
-  playSong(currentSong);
+  if (audio.paused) {
+
+    playSong();
+
+  } else {
+
+    pauseSong();
+
+  }
 
 }
 
+function previousSong() {
 
-/* গান শেষ হলে নিজে নিজে পরের গান */
+  currentSong--;
 
-audio.addEventListener("ended",function(){
+  if (currentSong < 0) {
+    currentSong = songs.length - 1;
+  }
 
-  nextSong();
+  loadSong(currentSong);
+  playSong();
+
+}
+
+function nextSong() {
+
+  currentSong++;
+
+  if (currentSong >= songs.length) {
+    currentSong = 0;
+  }
+
+  loadSong(currentSong);
+  playSong();
+
+}
+
+function formatTime(seconds) {
+
+  if (isNaN(seconds)) {
+    return "0:00";
+  }
+
+  const minutes = Math.floor(seconds / 60);
+
+  const secs = Math.floor(seconds % 60)
+    .toString()
+    .padStart(2, "0");
+
+  return minutes + ":" + secs;
+
+}
+
+audio.addEventListener("loadedmetadata", () => {
+
+  duration.innerText =
+    formatTime(audio.duration);
 
 });
 
+audio.addEventListener("timeupdate", () => {
 
-/* গান চলার সময় progress */
-
-audio.addEventListener("timeupdate",function(){
-
-  if(audio.duration){
+  if (audio.duration) {
 
     progress.value =
       (audio.currentTime / audio.duration) * 100;
 
   }
 
-  currentTime.textContent =
+  currentTime.innerText =
     formatTime(audio.currentTime);
 
 });
 
+progress.addEventListener("input", () => {
 
-/* Duration */
-
-audio.addEventListener("loadedmetadata",function(){
-
-  duration.textContent =
-    formatTime(audio.duration);
-
-});
-
-
-/* Progress থেকে গান এগিয়ে নেওয়া */
-
-progress.addEventListener("input",function(){
-
-  if(audio.duration){
+  if (audio.duration) {
 
     audio.currentTime =
       (progress.value / 100) * audio.duration;
@@ -765,42 +472,31 @@ progress.addEventListener("input",function(){
 
 });
 
+volume.addEventListener("input", () => {
 
-/* সময় format */
-
-function formatTime(seconds){
-
-  if(!isFinite(seconds)){
-    return "0:00";
-  }
-
-  const min =
-    Math.floor(seconds / 60);
-
-  const sec =
-    Math.floor(seconds % 60);
-
-  return min + ":" +
-    String(sec).padStart(2,"0");
-
-}
-
-
-/* Error */
-
-audio.addEventListener("error",function(){
-
-  playBtn.textContent = "▶";
-
-  playerSub.textContent =
-    "MP3 ফাইল পাওয়া যাচ্ছে না";
+  audio.volume = volume.value;
 
 });
 
+audio.addEventListener("play", () => {
 
-/* শুরু */
+  playBtn.innerText = "⏸";
 
-showSongs();
+});
+
+audio.addEventListener("pause", () => {
+
+  playBtn.innerText = "▶";
+
+});
+
+audio.addEventListener("ended", () => {
+
+  nextSong();
+
+});
+
+createSongList();
 
 </script>
 
