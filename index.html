@@ -1,1375 +1,788 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta
-  name="viewport"
-  content="width=device-width, initial-scale=1.0"
->
-
-<title>ঝুমুর সুর | Made by Hirak Mahata</title>
+<title>ঝুমুর সুর</title>
 
 <style>
-
 *{
   box-sizing:border-box;
   margin:0;
   padding:0;
 }
 
-html{
-  scroll-behavior:smooth;
-}
-
 body{
-  background:#080808;
-  color:#ffffff;
-  font-family:
-    Arial,
-    "Noto Sans Bengali",
-    sans-serif;
   min-height:100vh;
-  padding-bottom:120px;
+  background:#070707;
+  color:#fff;
+  font-family:Arial,"Noto Sans Bengali",sans-serif;
+  overflow-x:hidden;
 }
 
-
-/* =========================
-   HEADER
-========================= */
+/* ================= HEADER ================= */
 
 header{
-  height:82px;
-
-  background:#080808;
-
-  border-bottom:
-    1px solid #5b4010;
-
+  height:72px;
+  background:#090909;
+  border-bottom:1px solid #333;
   display:flex;
-
   align-items:center;
-
   justify-content:space-between;
-
-  padding:0 5%;
-
-  position:sticky;
-
+  padding:0 22px;
+  position:fixed;
   top:0;
-
-  z-index:1000;
+  left:0;
+  right:0;
+  z-index:100;
 }
 
 .logo{
-  color:#f5ad20;
-
-  font-size:28px;
-
+  color:#f5b62a;
+  font-size:25px;
   font-weight:bold;
 }
 
-.logo small{
+.logo span{
   display:block;
-
-  color:#bdbdbd;
-
+  color:#ddd;
   font-size:12px;
-
   font-weight:normal;
-
-  margin-top:5px;
+  margin-top:3px;
 }
 
-nav{
+.nav{
   display:flex;
-
-  align-items:center;
-
-  gap:28px;
+  gap:24px;
+  color:#eee;
+  font-size:14px;
 }
 
-nav a{
-  color:#dddddd;
-
-  text-decoration:none;
-
-  font-size:15px;
-
-  transition:.2s;
+.nav div{
+  cursor:pointer;
 }
 
-nav a:hover{
-  color:#f5ad20;
+/* ================= HOME ================= */
+
+.home{
+  min-height:100vh;
+  padding-top:72px;
+  padding-bottom:180px;
+
+  background:
+    linear-gradient(
+      rgba(0,0,0,.25),
+      rgba(0,0,0,.70)
+    ),
+    linear-gradient(
+      120deg,
+      #151515,
+      #4a170c 45%,
+      #090909
+    );
 }
 
-
-/* =========================
-   HERO
-========================= */
+/* ================= HERO ================= */
 
 .hero{
-  max-width:1150px;
-
-  margin:auto;
-
-  padding:
-    65px 25px 45px;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:40px;
-
+  min-height:75vh;
+  display:flex;
   align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:40px 20px;
 }
 
-.hero-text{
-  padding:10px;
+.hero-content{
+  max-width:750px;
 }
 
 .hero-small{
-  color:#f5ad20;
-
-  font-size:16px;
-
-  letter-spacing:1px;
-}
-
-.hero-small:before,
-.hero-small:after{
-  content:"";
-
-  display:inline-block;
-
-  width:55px;
-
-  height:1px;
-
-  background:#f5ad20;
-
-  vertical-align:middle;
-
-  margin:0 12px;
+  color:#f3ad25;
+  font-size:15px;
+  letter-spacing:3px;
+  margin-bottom:20px;
 }
 
 .hero h1{
-  color:#f5ad20;
+  font-size:clamp(55px,13vw,125px);
+  line-height:.95;
+  font-weight:900;
+  letter-spacing:-4px;
 
-  font-size:68px;
+  color:white;
 
-  line-height:1.1;
+  text-shadow:
+    0 5px 20px rgba(0,0,0,.8);
+}
 
-  margin:
-    20px 0;
+.hero h1 span{
+  color:#f3ad25;
 }
 
 .hero p{
-  color:#dddddd;
-
-  font-size:19px;
-
-  line-height:1.9;
-
-  max-width:500px;
-}
-
-.hero-button{
   margin-top:25px;
-
-  padding:
-    14px 28px;
-
-  background:transparent;
-
-  color:#f5ad20;
-
-  border:
-    1px solid #f5ad20;
-
-  border-radius:10px;
-
-  font-size:16px;
-
-  cursor:pointer;
-
-  transition:.25s;
+  color:#ddd;
+  font-size:18px;
 }
 
-.hero-button:hover{
-  background:#f5ad20;
-
-  color:#111;
+.line{
+  width:130px;
+  height:2px;
+  background:#e5a522;
+  margin:25px auto;
 }
 
+/* ================= PLAYER AREA ================= */
 
-/* =========================
-   HERO AUDIO PLAYER
-========================= */
+.player-space{
+  padding:0 20px;
+  display:flex;
+  justify-content:center;
+}
 
-.hero-player{
+.player{
+  width:100%;
+  max-width:850px;
+  min-height:130px;
 
   background:
     linear-gradient(
-      145deg,
-      #17130c,
-      #090909
+      135deg,
+      rgba(80,45,20,.95),
+      rgba(35,25,20,.96)
     );
 
-  border:
-    1px solid #6c4c12;
-
-  border-radius:24px;
-
-  padding:35px 30px;
-
-  text-align:center;
+  border:1px solid #a36b18;
+  border-radius:25px;
 
   box-shadow:
-    0 20px 60px
-    rgba(0,0,0,.55);
+    0 20px 60px rgba(0,0,0,.65);
 
-  position:relative;
-
-  overflow:hidden;
-}
-
-.hero-player:before{
-  content:"";
-
-  position:absolute;
-
-  width:220px;
-
-  height:220px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(245,173,32,.10),
-      transparent 70%
-    );
-
-  top:-80px;
-
-  right:-70px;
-}
-
-.hero-player:after{
-  content:"";
-
-  position:absolute;
-
-  width:180px;
-
-  height:180px;
-
-  border-radius:50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(245,173,32,.06),
-      transparent 70%
-    );
-
-  bottom:-80px;
-
-  left:-70px;
-}
-
-.music-circle{
-
-  width:150px;
-
-  height:150px;
-
-  border:
-    1px solid #f5ad20;
-
-  border-radius:50%;
+  padding:20px;
 
   display:flex;
-
   align-items:center;
+  gap:20px;
+}
 
+/* album */
+
+.album{
+  width:88px;
+  height:88px;
+  flex-shrink:0;
+
+  border-radius:18px;
+
+  background:
+    radial-gradient(
+      circle at center,
+      #f3ad25 0,
+      #7c4410 35%,
+      #17110d 70%
+    );
+
+  display:flex;
+  align-items:center;
   justify-content:center;
 
-  margin:
-    0 auto 25px;
-
-  font-size:65px;
-
-  color:#f5ad20;
-
-  box-shadow:
-    0 0 45px
-    rgba(245,173,32,.16);
-
-  position:relative;
-
-  z-index:2;
+  font-size:35px;
 }
 
-.now-label{
+/* info */
 
-  color:#f5ad20;
-
-  font-size:14px;
-
-  margin-bottom:8px;
-
-  position:relative;
-
-  z-index:2;
+.info{
+  flex:1;
+  min-width:0;
 }
 
-.hero-player h2{
-
-  font-size:27px;
-
-  margin-bottom:7px;
-
-  position:relative;
-
-  z-index:2;
+.song-title{
+  font-size:18px;
+  font-weight:bold;
+  white-space:nowrap;
+  overflow:hidden;
+  text-overflow:ellipsis;
 }
 
 .artist{
-
-  color:#f5ad20;
-
+  color:#bbb;
   font-size:14px;
-
-  position:relative;
-
-  z-index:2;
+  margin-top:7px;
 }
 
+.progress-row{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-top:15px;
+}
 
-/* progress */
-
-.progress-area{
-
-  margin-top:28px;
-
-  position:relative;
-
-  z-index:2;
+.time{
+  font-size:11px;
+  color:#ccc;
+  width:38px;
 }
 
 .progress{
-
-  width:100%;
-
-  accent-color:#f5ad20;
-
+  flex:1;
+  height:5px;
+  appearance:none;
+  background:#5b514b;
+  border-radius:10px;
   cursor:pointer;
 }
 
-.time-row{
-
-  display:flex;
-
-  justify-content:space-between;
-
-  color:#999;
-
-  font-size:12px;
-
-  margin-top:6px;
+.progress::-webkit-slider-thumb{
+  appearance:none;
+  width:14px;
+  height:14px;
+  background:#f3ad25;
+  border-radius:50%;
 }
-
 
 /* controls */
 
-.player-controls{
-
+.controls{
   display:flex;
-
   align-items:center;
-
-  justify-content:center;
-
-  gap:20px;
-
-  margin-top:25px;
-
-  position:relative;
-
-  z-index:2;
+  gap:13px;
 }
 
-.player-controls button{
-
+.btn{
   border:0;
-
   background:transparent;
-
-  color:#ffffff;
-
-  font-size:21px;
-
+  color:white;
+  font-size:23px;
   cursor:pointer;
+}
 
-  width:42px;
-
-  height:42px;
-
+.play{
+  width:58px;
+  height:58px;
   border-radius:50%;
-
-  transition:.2s;
-}
-
-.player-controls button:hover{
-
-  color:#f5ad20;
-
-  background:#211a0e;
-}
-
-.player-controls .main-play{
-
-  width:68px;
-
-  height:68px;
-
-  background:#f5ad20;
-
+  background:#f3ad25;
   color:#111;
-
   font-size:25px;
-
-  box-shadow:
-    0 5px 25px
-    rgba(245,173,32,.22);
+  display:flex;
+  align-items:center;
+  justify-content:center;
 }
 
-.player-controls .main-play:hover{
-
-  background:#ffbf3d;
-
-  color:#111;
+.play:hover{
+  transform:scale(1.05);
 }
-
 
 /* volume */
 
-.volume-area{
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  gap:10px;
-
-  margin-top:25px;
-
-  color:#f5ad20;
-
-  position:relative;
-
-  z-index:2;
-}
-
 .volume{
-
-  width:65%;
-
-  accent-color:#f5ad20;
-
-  cursor:pointer;
-}
-
-
-/* =========================
-   MAIN CONTAINER
-========================= */
-
-.container{
-
-  max-width:1150px;
-
-  margin:auto;
-
-  padding:
-    15px 25px;
-}
-
-
-/* =========================
-   GRID
-========================= */
-
-.main-grid{
-
-  display:grid;
-
-  grid-template-columns:
-    1fr 1fr;
-
-  gap:22px;
-}
-
-
-/* =========================
-   CARDS
-========================= */
-
-.card{
-
-  background:
-    linear-gradient(
-      145deg,
-      #121212,
-      #0c0c0c
-    );
-
-  border:
-    1px solid #45330f;
-
-  border-radius:20px;
-
-  padding:22px;
-
-  box-shadow:
-    0 12px 35px
-    rgba(0,0,0,.25);
-}
-
-.card-title{
-
-  color:#f5ad20;
-
-  font-size:21px;
-
-  margin-bottom:18px;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:8px;
-}
-
-
-/* =========================
-   SONG LIST
-========================= */
-
-.song-list{
-
-  max-height:590px;
-
-  overflow-y:auto;
-
-  padding-right:5px;
-}
-
-.song-list::-webkit-scrollbar{
-  width:6px;
-}
-
-.song-list::-webkit-scrollbar-track{
-  background:#111;
-}
-
-.song-list::-webkit-scrollbar-thumb{
-  background:#604712;
-
+  width:90px;
+  appearance:none;
+  height:4px;
+  background:#6a5b4e;
   border-radius:10px;
 }
 
-.song{
-
-  display:flex;
-
-  align-items:center;
-
-  gap:10px;
-
-  padding:
-    12px 9px;
-
-  border-bottom:
-    1px solid #222;
-
-  cursor:pointer;
-
-  transition:.2s;
+.volume::-webkit-slider-thumb{
+  appearance:none;
+  width:13px;
+  height:13px;
+  background:#f3ad25;
+  border-radius:50%;
 }
 
-.song:hover{
+/* ================= FOOTER ================= */
 
-  background:#211a0d;
-}
-
-.song.active{
-
-  background:
-    linear-gradient(
-      90deg,
-      #30230d,
-      #17120a
-    );
-
-  border-left:
-    3px solid #f5ad20;
-}
-
-.song-number{
-
-  width:35px;
-
+footer{
+  text-align:center;
   color:#888;
-
+  padding:35px 15px;
   font-size:13px;
 }
 
-.song.active .song-number{
-
-  color:#f5ad20;
+footer span{
+  color:#f3ad25;
 }
 
-.song-name{
+/* ================= YOUTUBE PLAYER ================= */
 
-  flex:1;
+/*
+  YouTube player পুরোপুরি স্ক্রিনের বাইরে রাখা হয়েছে।
+  তাই কোনো ভিডিও দেখা যাবে না।
+*/
 
-  font-size:15px;
-
-  color:#eee;
-}
-
-.song-play{
-
-  width:35px;
-
-  height:35px;
-
-  border-radius:50%;
-
-  border:
-    1px solid #f5ad20;
-
-  background:transparent;
-
-  color:#f5ad20;
-
-  cursor:pointer;
-
-  flex-shrink:0;
-}
-
-.song-play:hover{
-
-  background:#f5ad20;
-
-  color:#111;
-}
-
-
-/* =========================
-   NOW PLAYING CARD
-========================= */
-
-.now-card{
-
-  text-align:center;
-
-  min-height:590px;
-
-  display:flex;
-
-  flex-direction:column;
-
-  justify-content:center;
-
-  align-items:center;
-}
-
-.big-music-icon{
-
-  width:210px;
-
-  height:210px;
-
-  border:
-    1px solid #f5ad20;
-
-  border-radius:50%;
-
-  display:flex;
-
-  align-items:center;
-
-  justify-content:center;
-
-  font-size:90px;
-
-  color:#f5ad20;
-
-  box-shadow:
-    0 0 60px
-    rgba(245,173,32,.12);
-
-  margin-bottom:30px;
-}
-
-.now-card h2{
-
-  font-size:29px;
-
-  margin-bottom:8px;
-}
-
-.now-card p{
-
-  color:#f5ad20;
-
-  font-size:15px;
-}
-
-.big-progress{
-
-  width:85%;
-
-  margin-top:30px;
-
-  accent-color:#f5ad20;
-}
-
-.big-time{
-
-  width:85%;
-
-  display:flex;
-
-  justify-content:space-between;
-
-  color:#999;
-
-  font-size:12px;
-
-  margin-top:6px;
-}
-
-
-/* =========================
-   INFO
-========================= */
-
-.info-card{
-
-  margin-top:22px;
-
-  line-height:1.9;
-
-  color:#ccc;
-}
-
-.info-card p{
-
-  font-size:15px;
-}
-
-
-/* =========================
-   FOOTER
-========================= */
-
-footer{
-
-  max-width:1150px;
-
-  margin:
-    45px auto 0;
-
-  padding:
-    25px;
-
-  border-top:
-    1px solid #34280f;
-
-  text-align:center;
-
-  color:#777;
-
-  font-size:14px;
-}
-
-footer b{
-
-  color:#f5ad20;
-}
-
-
-/* =========================
-   HIDDEN YOUTUBE PLAYER
-========================= */
-
-#youtube-player{
-
+#youtubePlayer{
   position:fixed;
-
   width:1px;
-
   height:1px;
-
-  left:-20px;
-
-  bottom:-20px;
-
+  left:-10px;
+  bottom:-10px;
   opacity:0;
-
   pointer-events:none;
 }
 
+/* ================= MOBILE ================= */
 
-/* =========================
-   MOBILE
-========================= */
-
-@media(max-width:850px){
+@media(max-width:650px){
 
   header{
-
-    height:auto;
-
-    min-height:75px;
-
-    padding:
-      15px 18px;
-
+    height:65px;
+    padding:0 15px;
   }
 
   .logo{
-
-    font-size:22px;
+    font-size:20px;
   }
 
-  nav{
-
-    gap:13px;
-  }
-
-  nav a{
-
+  .nav{
+    gap:12px;
     font-size:12px;
   }
 
   .hero{
-
-    grid-template-columns:1fr;
-
-    padding:
-      45px 18px 30px;
-
-    gap:25px;
+    min-height:70vh;
   }
 
   .hero h1{
-
-    font-size:50px;
+    font-size:62px;
   }
 
   .hero p{
-
-    font-size:17px;
+    font-size:15px;
   }
 
-  .hero-player{
-
-    padding:
-      30px 20px;
+  .player{
+    border-radius:22px;
+    padding:15px;
+    gap:12px;
   }
 
-  .main-grid{
-
-    grid-template-columns:1fr;
+  .album{
+    width:65px;
+    height:65px;
+    font-size:25px;
+    border-radius:14px;
   }
 
-  .container{
-
-    padding:
-      10px 18px;
+  .song-title{
+    font-size:15px;
   }
 
-  .now-card{
-
-    min-height:470px;
+  .artist{
+    font-size:12px;
   }
 
-  .big-music-icon{
-
-    width:170px;
-
-    height:170px;
-
-    font-size:70px;
-  }
-
-}
-
-@media(max-width:500px){
-
-  nav a:nth-child(3){
-
-    display:none;
-  }
-
-  .hero h1{
-
-    font-size:43px;
-  }
-
-  .hero-small:before,
-  .hero-small:after{
-
-    width:25px;
-
-    margin:0 6px;
-  }
-
-  .player-controls{
-
+  .controls{
     gap:8px;
   }
 
-  .player-controls .main-play{
-
-    width:60px;
-
-    height:60px;
+  .btn{
+    font-size:19px;
   }
 
-  .song-name{
-
-    font-size:14px;
+  .play{
+    width:50px;
+    height:50px;
   }
 
+  .volume{
+    display:none;
+  }
 }
-
 </style>
-
 </head>
 
-
 <body>
-
-
-<!-- =========================
-     HEADER
-========================= -->
 
 <header>
 
   <div class="logo">
-
     🎵 ঝুমুর সুর
-
-    <small>
-      মাটির গান, বাংলার সুর
-    </small>
-
+    <span>মাটির গান, বাংলার সুর</span>
   </div>
 
-  <nav>
-
-    <a href="#">
-      হোম
-    </a>
-
-    <a href="#songs">
-      গান
-    </a>
-
-    <a href="#about">
-      পরিচয়
-    </a>
-
-  </nav>
+  <div class="nav">
+    <div>⌂ হোম</div>
+    <div>♡ প্রিয় গান</div>
+    <div>ⓘ আমাদের সম্পর্কে</div>
+  </div>
 
 </header>
 
 
+<main class="home">
 
-<!-- =========================
-     HERO
-========================= -->
+  <section class="hero">
 
-<section class="hero">
+    <div class="hero-content">
 
-
-  <div class="hero-text">
-
-    <div class="hero-small">
-      বাংলার লোকসংগীত
-    </div>
-
-    <h1>
-      ঝুমুর সুর
-    </h1>
-
-    <p>
-      গ্রাম বাংলার মাটির গান,
-      ঝুমুরের সুরে মেতে উঠুক
-      আপনার মন।
-    </p>
-
-    <button
-      class="hero-button"
-      onclick="playSong(0)"
-    >
-      ▶ গান শুনুন
-    </button>
-
-  </div>
-
-
-
-  <!-- PHOTO-এর জায়গায় AUDIO PLAYER -->
-
-  <div class="hero-player">
-
-    <div class="music-circle">
-      🎵
-    </div>
-
-    <div class="now-label">
-      এখন চলছে
-    </div>
-
-    <h2 id="heroSongTitle">
-      কোনো গান চলছে না
-    </h2>
-
-    <p class="artist">
-      ঝুমুর সুর
-    </p>
-
-
-    <div class="progress-area">
-
-      <input
-        type="range"
-        id="heroProgress"
-        class="progress"
-        min="0"
-        max="100"
-        value="0"
-      >
-
-      <div class="time-row">
-
-        <span id="heroCurrentTime">
-          00:00
-        </span>
-
-        <span id="heroDuration">
-          00:00
-        </span>
-
+      <div class="hero-small">
+        বাংলা লোকসংগীত • ঝুমুর
       </div>
 
-    </div>
+      <h1>
+        ঝুমুর <span>সুর</span>
+      </h1>
 
-
-    <div class="player-controls">
-
-      <button
-        onclick="shuffleSong()"
-        title="Shuffle"
-      >
-        🔀
-      </button>
-
-      <button
-        onclick="previousSong()"
-        title="Previous"
-      >
-        ⏮
-      </button>
-
-      <button
-        class="main-play"
-        id="heroPlayButton"
-        onclick="togglePlay()"
-        title="Play"
-      >
-        ▶
-      </button>
-
-      <button
-        onclick="nextSong()"
-        title="Next"
-      >
-        ⏭
-      </button>
-
-      <button
-        onclick="repeatSong()"
-        title="Repeat"
-      >
-        🔁
-      </button>
-
-    </div>
-
-
-    <div class="volume-area">
-
-      🔊
-
-      <input
-        type="range"
-        class="volume"
-        id="heroVolume"
-        min="0"
-        max="100"
-        value="80"
-      >
-
-    </div>
-
-  </div>
-
-</section>
-
-
-
-<!-- =========================
-     CONTENT
-========================= -->
-
-<div class="container">
-
-  <div class="main-grid">
-
-
-    <!-- SONG LIST -->
-
-    <section class="card" id="songs">
-
-      <div class="card-title">
-        🎵 গানের তালিকা (২০টি)
-      </div>
-
-      <div
-        class="song-list"
-        id="songList"
-      ></div>
-
-    </section>
-
-
-
-    <!-- NOW PLAYING -->
-
-    <section class="card now-card">
-
-      <div class="card-title">
-        🎧 এখন চলছে
-      </div>
-
-      <div class="big-music-icon">
-        🎵
-      </div>
-
-      <h2 id="currentTitle">
-        কোনো গান চলছে না
-      </h2>
+      <div class="line"></div>
 
       <p>
-        ঝুমুর সুর
+        মাটির গন্ধে, বাংলার সুরে
       </p>
 
-      <input
-        type="range"
-        id="bigProgress"
-        class="big-progress"
-        min="0"
-        max="100"
-        value="0"
-      >
-
-      <div class="big-time">
-
-        <span id="bigCurrentTime">
-          00:00
-        </span>
-
-        <span id="bigDuration">
-          00:00
-        </span>
-
-      </div>
-
-    </section>
-
-  </div>
-
-
-
-  <!-- ABOUT -->
-
-  <section
-    class="card info-card"
-    id="about"
-  >
-
-    <div class="card-title">
-      🌾 আমাদের কথা
     </div>
-
-    <p>
-      বাংলার লোকসংগীত ও ঝুমুরের সুরকে
-      ভালোবাসি। বাংলার মাটির গান মানুষের
-      কাছে পৌঁছে দেওয়াই আমাদের লক্ষ্য।
-      ❤️
-    </p>
 
   </section>
 
-</div>
+
+  <!-- ================= AUDIO PLAYER ================= -->
+
+  <section class="player-space">
+
+    <div class="player">
+
+      <div class="album">
+        ♪
+      </div>
+
+      <div class="info">
+
+        <div class="song-title" id="songTitle">
+          গান নির্বাচন করুন
+        </div>
+
+        <div class="artist" id="artist">
+          ঝুমুর সুর
+        </div>
+
+        <div class="progress-row">
+
+          <span class="time" id="currentTime">
+            00:00
+          </span>
+
+          <input
+            type="range"
+            id="progress"
+            class="progress"
+            min="0"
+            max="100"
+            value="0"
+          >
+
+          <span class="time" id="duration">
+            00:00
+          </span>
+
+        </div>
+
+      </div>
 
 
+      <div class="controls">
 
-<!-- =========================
-     FOOTER
-========================= -->
+        <button class="btn" onclick="previousSong()">
+          ⏮
+        </button>
+
+        <button
+          class="play"
+          id="playButton"
+          onclick="togglePlay()"
+        >
+          ▶
+        </button>
+
+        <button class="btn" onclick="nextSong()">
+          ⏭
+        </button>
+
+        <input
+          type="range"
+          class="volume"
+          id="volume"
+          min="0"
+          max="1"
+          step="0.01"
+          value="1"
+        >
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
 
 <footer>
-
-  Made by
-  <b>Hirak Mahata</b>
-
+  © 2026 ঝুমুর সুর • সর্বস্বত্ব সংরক্ষিত
+  <br><br>
+  Made with ❤️ by <span>Hirak Mahata</span>
 </footer>
 
 
+<!-- ================= LOCAL AUDIO ================= -->
 
-<!-- =========================
-     YOUTUBE API PLAYER
-========================= -->
-
-<div id="youtube-player"></div>
+<audio id="audio"></audio>
 
 
-<script src="https://www.youtube.com/iframe_api"></script>
+<!-- ================= HIDDEN YOUTUBE PLAYER ================= -->
+
+<div id="youtubePlayer"></div>
 
 
 <script>
 
 /* =====================================================
-   তোমার দেওয়া ২০টি YouTube গান
-===================================================== */
+   তোমার সব গান
+   ===================================================== */
 
 const songs = [
 
+  /* ---------- আগের MP3 গান ---------- */
+
   {
-    title:"ঝুমুর গান ১",
-    id:"82cTuqdbafk"
+    title: "ঝুমুর গান ১",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song1.mp3"
   },
 
   {
-    title:"ঝুমুর গান ২",
-    id:"WgwJfCh4MP4"
+    title: "ঝুমুর গান ২",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song2.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৩",
-    id:"rhH88N-OGXQ"
+    title: "ঝুমুর গান ৩",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song3.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৪",
-    id:"ozI_OFD0HSs"
+    title: "ঝুমুর গান ৪",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song4.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৫",
-    id:"QsHMXuBoglo"
+    title: "ঝুমুর গান ৫",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song5.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৬",
-    id:"Dw5C7HFjUrk"
+    title: "ঝুমুর গান ৬",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song6.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৭",
-    id:"bB8Aa2idsKs"
+    title: "ঝুমুর গান ৭",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song7.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৮",
-    id:"3qAOOof2xkg"
+    title: "ঝুমুর গান ৮",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song8.mp3"
   },
 
   {
-    title:"ঝুমুর গান ৯",
-    id:"DbqGOFmGD9A"
+    title: "ঝুমুর গান ৯",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song9.mp3"
   },
 
   {
-    title:"ঝুমুর গান ১০",
-    id:"ohIpXRVzpZA"
+    title: "ঝুমুর গান ১০",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song10.mp3"
   },
 
   {
-    title:"ঝুমুর গান ১১",
-    id:"_wSkIHsLO_Y"
+    title: "ঝুমুর গান ১১",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song11.mp3"
   },
 
   {
-    title:"ঝুমুর গান ১২",
-    id:"SJEsSG7DNyY"
+    title: "ঝুমুর গান ১২",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song12.mp3"
   },
 
   {
-    title:"ঝুমুর গান ১৩",
-    id:"6k7TU8dRyHs"
+    title: "ঝুমুর গান ১৩",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song13.mp3"
   },
 
   {
-    title:"ঝুমুর গান ১৪",
-    id:"Bu-8VLIhGnA"
+    title: "ঝুমুর গান ১৪",
+    artist: "ঝুমুর সুর",
+    type: "local",
+    src: "song14.mp3"
+  },
+
+
+  /* ---------- YouTube গান ---------- */
+
+  {
+    title: "YouTube গান ১৫",
+    artist: "YouTube",
+    type: "youtube",
+    id: "82cTuqdbafk"
   },
 
   {
-    title:"ঝুমুর গান ১৫",
-    id:"Afmk2qltj04"
+    title: "YouTube গান ১৬",
+    artist: "YouTube",
+    type: "youtube",
+    id: "WgwJfCh4MP4"
   },
 
   {
-    title:"ঝুমুর গান ১৬",
-    id:"7W1_7vJjz88"
+    title: "YouTube গান ১৭",
+    artist: "YouTube",
+    type: "youtube",
+    id: "rhH88N-OGXQ"
   },
 
   {
-    title:"ঝুমুর গান ১৭",
-    id:"xoZlFwIIIes"
+    title: "YouTube গান ১৮",
+    artist: "YouTube",
+    type: "youtube",
+    id: "ozI_OFD0HSs"
   },
 
   {
-    title:"ঝুমুর গান ১৮",
-    id:"E1pVGHHMKZs"
+    title: "YouTube গান ১৯",
+    artist: "YouTube",
+    type: "youtube",
+    id: "QsHMXuBoglo"
   },
 
   {
-    title:"ঝুমুর গান ১৯",
-    id:"z4mjKbTKMF0"
+    title: "YouTube গান ২০",
+    artist: "YouTube",
+    type: "youtube",
+    id: "Dw5C7HFjUrk"
   },
 
   {
-    title:"ঝুমুর গান ২০",
-    id:"TvH8PuKBKX8"
+    title: "YouTube গান ২১",
+    artist: "YouTube",
+    type: "youtube",
+    id: "bB8Aa2idsKs"
+  },
+
+  {
+    title: "YouTube গান ২২",
+    artist: "YouTube",
+    type: "youtube",
+    id: "3qAOOof2xkg"
+  },
+
+  {
+    title: "YouTube গান ২৩",
+    artist: "YouTube",
+    type: "youtube",
+    id: "DbqGOFmGD9A"
+  },
+
+  {
+    title: "YouTube গান ২৪",
+    artist: "YouTube",
+    type: "youtube",
+    id: "ohIpXRVzpZA"
+  },
+
+  {
+    title: "YouTube গান ২৫",
+    artist: "YouTube",
+    type: "youtube",
+    id: "_wSkIHsLO_Y"
+  },
+
+  {
+    title: "YouTube গান ২৬",
+    artist: "YouTube",
+    type: "youtube",
+    id: "SJEsSG7DNyY"
+  },
+
+  {
+    title: "YouTube গান ২৭",
+    artist: "YouTube",
+    type: "youtube",
+    id: "6k7TU8dRyHs"
+  },
+
+  {
+    title: "YouTube গান ২৮",
+    artist: "YouTube",
+    type: "youtube",
+    id: "Bu-8VLIhGnA"
+  },
+
+  {
+    title: "YouTube গান ২৯",
+    artist: "YouTube",
+    type: "youtube",
+    id: "Afmk2qltj04"
+  },
+
+  {
+    title: "YouTube গান ৩০",
+    artist: "YouTube",
+    type: "youtube",
+    id: "7W1_7vJjz88"
+  },
+
+  {
+    title: "YouTube গান ৩১",
+    artist: "YouTube",
+    type: "youtube",
+    id: "xoZlFwIIIes"
+  },
+
+  {
+    title: "YouTube গান ৩২",
+    artist: "YouTube",
+    type: "youtube",
+    id: "E1pVGHHMKZs"
+  },
+
+  {
+    title: "YouTube গান ৩৩",
+    artist: "YouTube",
+    type: "youtube",
+    id: "z4mjKbTKMF0"
+  },
+
+  {
+    title: "YouTube গান ৩৪",
+    artist: "YouTube",
+    type: "youtube",
+    id: "TvH8PuKBKX8"
   }
 
 ];
@@ -1377,145 +790,88 @@ const songs = [
 
 /* =====================================================
    VARIABLES
-===================================================== */
+   ===================================================== */
 
 let currentSong = 0;
-
-let player = null;
-
-let isReady = false;
-
-let isPlaying = false;
-
-let repeatMode = false;
-
+let playing = false;
+let youtubeReady = false;
+let youtubePlayer;
 
 
 /* =====================================================
-   SONG LIST তৈরি
-===================================================== */
+   HTML ELEMENTS
+   ===================================================== */
 
-const songList =
-document.getElementById("songList");
+const audio = document.getElementById("audio");
 
+const playButton =
+  document.getElementById("playButton");
 
-songs.forEach((song,index)=>{
+const songTitle =
+  document.getElementById("songTitle");
 
-  const item =
-  document.createElement("div");
+const artist =
+  document.getElementById("artist");
 
-  item.className = "song";
+const progress =
+  document.getElementById("progress");
 
-  item.id =
-    "song-" + index;
+const currentTime =
+  document.getElementById("currentTime");
 
+const duration =
+  document.getElementById("duration");
 
-  item.innerHTML = `
-
-    <span class="song-number">
-      ${String(index + 1).padStart(2,"0")}
-    </span>
-
-    <span class="song-name">
-      ${song.title}
-    </span>
-
-    <button
-      class="song-play"
-      onclick="playSong(${index})"
-    >
-      ▶
-    </button>
-
-  `;
-
-
-  songList.appendChild(item);
-
-});
-
+const volume =
+  document.getElementById("volume");
 
 
 /* =====================================================
-   YOUTUBE PLAYER
-===================================================== */
+   YOUTUBE API
+   ===================================================== */
 
 function onYouTubeIframeAPIReady(){
 
-  player =
-  new YT.Player(
-    "youtube-player",
-    {
+  youtubePlayer =
+    new YT.Player("youtubePlayer", {
 
       height:"1",
-
       width:"1",
 
-      videoId:
-        songs[0].id,
+      videoId:"82cTuqdbafk",
 
       playerVars:{
-        autoplay:0,
         controls:0,
+        playsinline:1,
         rel:0,
-        playsinline:1
+        modestbranding:1
       },
 
       events:{
-
         onReady:function(){
-
-          isReady = true;
-
-          player.setVolume(80);
-
+          youtubeReady = true;
+          loadSong(0);
         },
-
 
         onStateChange:function(event){
 
-          if(
-            event.data ===
-            YT.PlayerState.PLAYING
-          ){
+          if(event.data === YT.PlayerState.PLAYING){
 
-            isPlaying = true;
-
-            setPlayIcons("⏸");
+            playing = true;
+            playButton.innerText = "❚❚";
 
           }
 
+          if(event.data === YT.PlayerState.PAUSED){
 
-          else if(
-            event.data ===
-            YT.PlayerState.PAUSED
-          ){
-
-            isPlaying = false;
-
-            setPlayIcons("▶");
+            playing = false;
+            playButton.innerText = "▶";
 
           }
 
+          if(event.data === YT.PlayerState.ENDED){
 
-          else if(
-            event.data ===
-            YT.PlayerState.ENDED
-          ){
-
-            if(repeatMode){
-
-              player.seekTo(0);
-
-              player.playVideo();
-
-            }
-
-            else{
-
-              nextSong();
-
-            }
+            nextSong();
 
           }
 
@@ -1523,139 +879,183 @@ function onYouTubeIframeAPIReady(){
 
       }
 
-    }
-  );
+    });
 
 }
-
 
 
 /* =====================================================
-   PLAY SONG
-===================================================== */
+   LOAD SONG
+   ===================================================== */
 
-function playSong(index){
+function loadSong(index){
 
   currentSong = index;
 
-  const song =
-    songs[index];
+  const song = songs[currentSong];
+
+  songTitle.innerText = song.title;
+
+  artist.innerText = song.artist;
+
+  progress.value = 0;
+
+  currentTime.innerText = "00:00";
+
+  duration.innerText = "00:00";
 
 
-  document
-    .getElementById("heroSongTitle")
-    .innerText =
-    song.title;
+  /* STOP EVERYTHING */
+
+  audio.pause();
+
+  if(youtubeReady){
+
+    try{
+      youtubePlayer.stopVideo();
+    }catch(e){}
+
+  }
+
+  playing = false;
+
+  playButton.innerText = "▶";
 
 
-  document
-    .getElementById("currentTitle")
-    .innerText =
-    song.title;
+  /* LOCAL MP3 */
 
+  if(song.type === "local"){
 
-  document
-    .querySelectorAll(".song")
-    .forEach(item=>{
+    audio.src = song.src;
 
-      item.classList.remove("active");
+    audio.volume = volume.value;
 
-    });
-
-
-  const activeSong =
-    document.getElementById(
-      "song-" + index
-    );
-
-
-  if(activeSong){
-
-    activeSong.classList.add("active");
+    audio.load();
 
   }
 
 
-  if(!isReady){
+  /* YOUTUBE */
 
-    alert(
-      "YouTube Player প্রস্তুত হচ্ছে। একটু পরে আবার Play চাপুন।"
-    );
+  if(song.type === "youtube"){
 
-    return;
+    if(youtubeReady){
+
+      youtubePlayer.cueVideoById(song.id);
+
+    }
 
   }
-
-
-  player.loadVideoById(
-    song.id
-  );
-
-  player.playVideo();
 
 }
-
 
 
 /* =====================================================
    PLAY / PAUSE
-===================================================== */
+   ===================================================== */
 
 function togglePlay(){
 
-  if(!isReady){
+  const song = songs[currentSong];
 
-    alert(
-      "Player প্রস্তুত হচ্ছে। একটু পরে আবার চেষ্টা করুন।"
-    );
 
-    return;
+  /* LOCAL */
+
+  if(song.type === "local"){
+
+    if(!playing){
+
+      audio.play()
+      .then(()=>{
+
+        playing = true;
+        playButton.innerText = "❚❚";
+
+      })
+      .catch(()=>{
+
+        alert(
+          "গানটি চালু হচ্ছে না। song ফাইলটি GitHub-এ আছে কিনা দেখুন।"
+        );
+
+      });
+
+    }else{
+
+      audio.pause();
+
+      playing = false;
+
+      playButton.innerText = "▶";
+
+    }
 
   }
 
 
-  if(isPlaying){
-
-    player.pauseVideo();
-
-  }
+  /* YOUTUBE */
 
   else{
 
-    player.playVideo();
+    if(!youtubeReady){
+
+      alert("YouTube player এখনও প্রস্তুত হচ্ছে। একটু অপেক্ষা করুন।");
+
+      return;
+
+    }
+
+    if(!playing){
+
+      youtubePlayer.playVideo();
+
+      playing = true;
+
+      playButton.innerText = "❚❚";
+
+    }else{
+
+      youtubePlayer.pauseVideo();
+
+      playing = false;
+
+      playButton.innerText = "▶";
+
+    }
 
   }
 
 }
 
 
-
 /* =====================================================
    NEXT
-===================================================== */
+   ===================================================== */
 
 function nextSong(){
 
   currentSong++;
 
-  if(
-    currentSong >= songs.length
-  ){
+  if(currentSong >= songs.length){
 
     currentSong = 0;
 
   }
 
+  loadSong(currentSong);
 
-  playSong(currentSong);
+  setTimeout(()=>{
+
+    togglePlay();
+
+  },300);
 
 }
 
 
-
 /* =====================================================
    PREVIOUS
-===================================================== */
+   ===================================================== */
 
 function previousSong(){
 
@@ -1663,145 +1063,233 @@ function previousSong(){
 
   if(currentSong < 0){
 
-    currentSong =
-      songs.length - 1;
+    currentSong = songs.length - 1;
 
   }
 
+  loadSong(currentSong);
 
-  playSong(currentSong);
+  setTimeout(()=>{
+
+    togglePlay();
+
+  },300);
 
 }
-
 
 
 /* =====================================================
-   SHUFFLE
-===================================================== */
+   LOCAL AUDIO EVENTS
+   ===================================================== */
 
-function shuffleSong(){
+audio.addEventListener(
+  "loadedmetadata",
+  ()=>{
 
-  let randomIndex;
-
-
-  do{
-
-    randomIndex =
-      Math.floor(
-        Math.random() *
-        songs.length
-      );
+    duration.innerText =
+      formatTime(audio.duration);
 
   }
-
-  while(
-    randomIndex === currentSong
-  );
+);
 
 
-  playSong(randomIndex);
+audio.addEventListener(
+  "timeupdate",
+  ()=>{
 
-}
+    if(audio.duration){
 
+      progress.value =
+        (audio.currentTime / audio.duration) * 100;
+
+      currentTime.innerText =
+        formatTime(audio.currentTime);
+
+    }
+
+  }
+);
+
+
+audio.addEventListener(
+  "play",
+  ()=>{
+
+    playing = true;
+    playButton.innerText = "❚❚";
+
+  }
+);
+
+
+audio.addEventListener(
+  "pause",
+  ()=>{
+
+    playing = false;
+    playButton.innerText = "▶";
+
+  }
+);
+
+
+audio.addEventListener(
+  "ended",
+  ()=>{
+
+    nextSong();
+
+  }
+);
 
 
 /* =====================================================
-   REPEAT
-===================================================== */
+   PROGRESS BAR
+   ===================================================== */
 
-function repeatSong(){
+progress.addEventListener(
+  "input",
+  ()=>{
 
-  repeatMode =
-    !repeatMode;
+    const song = songs[currentSong];
 
-
-  const button =
-    document.querySelector(
-      '[title="Repeat"]'
-    );
+    const percent =
+      progress.value / 100;
 
 
-  if(repeatMode){
+    /* LOCAL */
 
-    button.style.color =
-      "#f5ad20";
+    if(song.type === "local"){
+
+      if(audio.duration){
+
+        audio.currentTime =
+          audio.duration * percent;
+
+      }
+
+    }
+
+
+    /* YOUTUBE */
+
+    else{
+
+      if(youtubeReady){
+
+        const total =
+          youtubePlayer.getDuration();
+
+        youtubePlayer.seekTo(
+          total * percent,
+          true
+        );
+
+      }
+
+    }
 
   }
-
-  else{
-
-    button.style.color =
-      "#ffffff";
-
-  }
-
-}
-
+);
 
 
 /* =====================================================
    VOLUME
-===================================================== */
+   ===================================================== */
 
-document
-  .getElementById("heroVolume")
-  .addEventListener(
-    "input",
-    function(){
+volume.addEventListener(
+  "input",
+  ()=>{
 
-      setVolume(
-        this.value
+    audio.volume = volume.value;
+
+    if(youtubeReady){
+
+      youtubePlayer.setVolume(
+        Number(volume.value) * 100
       );
 
     }
-  );
 
-
-function setVolume(value){
-
-  if(!isReady) return;
-
-  player.setVolume(
-    Number(value)
-  );
-
-}
-
+  }
+);
 
 
 /* =====================================================
-   PLAY ICON
-===================================================== */
+   YOUTUBE PROGRESS
+   ===================================================== */
 
-function setPlayIcons(icon){
+setInterval(()=>{
 
-  document
-    .getElementById(
-      "heroPlayButton"
-    )
-    .innerText =
-    icon;
+  if(!youtubeReady) return;
 
-}
+  const song = songs[currentSong];
 
+  if(song.type !== "youtube") return;
+
+  if(!playing) return;
+
+
+  const current =
+    youtubePlayer.getCurrentTime();
+
+  const total =
+    youtubePlayer.getDuration();
+
+
+  if(total > 0){
+
+    progress.value =
+      (current / total) * 100;
+
+    currentTime.innerText =
+      formatTime(current);
+
+    duration.innerText =
+      formatTime(total);
+
+  }
+
+},500);
 
 
 /* =====================================================
    TIME FORMAT
-===================================================== */
+   ===================================================== */
 
 function formatTime(seconds){
 
-  if(
-    !seconds ||
-    isNaN(seconds)
-  ){
+  if(!seconds || isNaN(seconds)){
 
     return "00:00";
 
   }
 
-
   const minutes =
-    Math.floor(
-      seconds 
+    Math.floor(seconds / 60);
+
+  const secs =
+    Math.floor(seconds % 60)
+    .toString()
+    .padStart(2,"0");
+
+  return minutes + ":" + secs;
+
+}
+
+
+/* =====================================================
+   START
+   ===================================================== */
+
+loadSong(0);
+
+</script>
+
+
+<!-- YouTube IFrame API -->
+
+<script src="https://www.youtube.com/iframe_api"></script>
+
+</body>
+  </html>
