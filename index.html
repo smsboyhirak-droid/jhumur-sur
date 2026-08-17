@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>ঝুমুর সুর</title>
 
@@ -14,664 +14,871 @@
 }
 
 body{
-  background:#070707;
-  color:#fff;
   font-family:Arial,"Noto Sans Bengali",sans-serif;
-  min-height:100vh;
-}
-
-.app{
-  width:100%;
-  max-width:1000px;
-  margin:auto;
-  padding:25px 22px 35px;
+  background:#080808;
+  color:#fff;
+  padding-bottom:40px;
 }
 
 /* HEADER */
 
 header{
+  background:#0b0b0b;
+  border-bottom:1px solid #4a3512;
+  padding:15px 20px;
+}
+
+.nav{
+  max-width:1100px;
+  margin:auto;
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:25px;
 }
 
 .logo{
-  color:#f2a91f;
-  font-size:30px;
+  color:#f4ae22;
+  font-size:27px;
   font-weight:bold;
 }
 
 .tagline{
-  color:#aaa;
-  font-size:14px;
-  margin-top:5px;
+  color:#999;
+  font-size:12px;
+  margin-top:4px;
 }
 
-.online{
-  color:#ddd;
-  font-size:14px;
-}
-
-.online span{
-  color:#f2a91f;
-}
-
-/* COVER */
-
-.cover{
-  width:100%;
-  aspect-ratio:16/11;
-  border-radius:25px;
-  overflow:hidden;
-
-  background:
-    linear-gradient(
-      to bottom,
-      rgba(0,0,0,.05),
-      rgba(0,0,0,.25)
-    ),
-    url("jhumur-cover.png") center/cover;
-
-  border:1px solid #5b4217;
-
-  box-shadow:
-    0 25px 80px rgba(0,0,0,.8);
-}
-
-/* SONG INFO */
-
-.song-info{
-  text-align:center;
-  margin-top:25px;
-}
-
-.song-info h1{
-  font-family:Georgia,"Noto Serif Bengali",serif;
-  font-size:42px;
-  color:#f5eee2;
-}
-
-.song-info p{
-  color:#f2a91f;
-  font-size:19px;
-  margin-top:8px;
-}
-
-.favorite{
-  margin-top:15px;
-  border:0;
-  background:none;
-  color:#eee;
-  font-size:32px;
-  cursor:pointer;
-}
-
-.favorite.active{
-  color:#f2a91f;
-}
-
-/* PROGRESS */
-
-.progress-box{
-  margin-top:20px;
-}
-
-.times{
+.menu{
   display:flex;
-  justify-content:space-between;
-  color:#aaa;
-  font-size:13px;
-  margin-bottom:8px;
+  gap:20px;
 }
 
-input[type="range"]{
-  width:100%;
-  accent-color:#f2a91f;
-  cursor:pointer;
+.menu a{
+  color:#ddd;
+  text-decoration:none;
+  font-size:14px;
 }
 
-/* CONTROLS */
+.menu a:hover{
+  color:#f4ae22;
+}
 
-.controls{
+
+/* EMPTY PHOTO AREA */
+
+.hero{
+  max-width:1100px;
+  margin:auto;
+  min-height:470px;
+
   display:flex;
   align-items:center;
-  justify-content:center;
-  gap:55px;
-  margin-top:30px;
+
+  padding:60px 30px;
+
+  background:#080808;
+
+  border-bottom:2px solid #d79b22;
 }
 
-.control{
-  background:none;
+.hero-content{
+  max-width:600px;
+}
+
+.small{
+  color:#f4ae22;
+  letter-spacing:3px;
+  font-size:13px;
+}
+
+.hero h1{
+  font-size:65px;
+  margin:15px 0;
+}
+
+.hero p{
+  color:#ddd;
+  font-size:20px;
+  line-height:1.6;
+}
+
+.play-main{
+  margin-top:25px;
+  padding:14px 28px;
+
   border:0;
-  color:#eee;
-  font-size:32px;
+  border-radius:30px;
+
+  background:#f4ae22;
+  color:#111;
+
+  font-size:17px;
+  font-weight:bold;
+
   cursor:pointer;
 }
 
-.control:hover{
-  color:#f2a91f;
+
+/* CONTENT */
+
+.container{
+  max-width:950px;
+  margin:auto;
+  padding:30px 18px;
 }
 
-.play{
-  width:85px;
-  height:85px;
+.heading{
+  color:#f4ae22;
+  font-size:25px;
+  margin-bottom:18px;
+}
+
+
+/* SONG LIST */
+
+.song-list{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.song{
+  background:#151515;
+  border:1px solid #33260f;
+  border-radius:14px;
+
+  padding:13px 15px;
+
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+
+  cursor:pointer;
+  transition:.2s;
+}
+
+.song:hover{
+  border-color:#f4ae22;
+  background:#19160f;
+}
+
+.song.active{
+  border-color:#f4ae22;
+  background:#1d180e;
+}
+
+.song-left{
+  display:flex;
+  align-items:center;
+  gap:14px;
+}
+
+.number{
+  width:42px;
+  height:42px;
+
   border-radius:50%;
 
-  border:2px solid #f2a91f;
-  background:#111;
+  background:#211a0d;
+  color:#f4ae22;
 
-  color:#f2a91f;
-  font-size:30px;
-
-  cursor:pointer;
-}
-
-.play:hover{
-  background:#f2a91f;
-  color:#111;
-}
-
-/* VOLUME */
-
-.volume{
   display:flex;
-  align-items:center;
   justify-content:center;
-  gap:15px;
-  margin-top:35px;
+  align-items:center;
+
+  font-weight:bold;
+  flex-shrink:0;
 }
 
-.volume span{
-  font-size:25px;
+.title{
+  font-size:16px;
 }
 
-/* DECORATION */
-
-.line{
-  height:1px;
-  background:#5c4217;
-  margin:45px 0 25px;
-  position:relative;
+.artist{
+  color:#888;
+  font-size:12px;
+  margin-top:4px;
 }
 
-.line:after{
-  content:"✿";
-  position:absolute;
-  left:50%;
-  top:-14px;
-  transform:translateX(-50%);
-  background:#070707;
-  padding:0 18px;
-  color:#f2a91f;
-  font-size:22px;
+.play-icon{
+  color:#f4ae22;
+  font-size:23px;
 }
+
+
+/* PLAYER */
+
+.player-box{
+  margin-top:30px;
+
+  background:#101010;
+
+  border:1px solid #c38d21;
+  border-radius:18px;
+
+  padding:15px;
+}
+
+.player-title{
+  color:#f4ae22;
+  font-size:18px;
+  margin-bottom:13px;
+}
+
+.youtube{
+  width:100%;
+  aspect-ratio:16/9;
+
+  border:0;
+  border-radius:12px;
+
+  background:#000;
+
+  display:none;
+}
+
+.audio-player{
+  width:100%;
+  display:none;
+}
+
 
 /* FOOTER */
 
 footer{
   text-align:center;
-  color:#aaa;
-  font-size:14px;
+  color:#777;
+
+  border-top:1px solid #30240e;
+
+  margin-top:50px;
+  padding:30px 15px;
+
+  font-size:13px;
 }
 
 footer b{
-  color:#f2a91f;
+  color:#f4ae22;
 }
+
 
 /* MOBILE */
 
-@media(max-width:600px){
+@media(max-width:650px){
 
-  .app{
-    padding:18px 14px 30px;
+  .nav{
+    align-items:flex-start;
   }
 
   .logo{
-    font-size:24px;
+    font-size:22px;
   }
 
-  .tagline{
+  .menu{
+    gap:10px;
+  }
+
+  .menu a{
     font-size:11px;
   }
 
-  .online{
-    font-size:12px;
+  .hero{
+    min-height:400px;
+    padding:45px 20px;
   }
 
-  .cover{
-    aspect-ratio:1/1;
-    border-radius:20px;
+  .hero h1{
+    font-size:45px;
   }
 
-  .song-info h1{
-    font-size:32px;
+  .hero p{
+    font-size:17px;
   }
 
-  .song-info p{
-    font-size:16px;
+  .container{
+    padding:25px 12px;
   }
 
-  .controls{
-    gap:25px;
+  .song{
+    padding:11px;
   }
 
-  .control{
-    font-size:25px;
-  }
-
-  .play{
-    width:70px;
-    height:70px;
-    font-size:25px;
-  }
 }
 </style>
 </head>
 
+
 <body>
 
-<div class="app">
+
+<!-- HEADER -->
 
 <header>
 
+<div class="nav">
+
   <div>
-    <div class="logo">♫ ঝুমুর সুর</div>
+
+    <div class="logo">
+      🎵 ঝুমুর সুর
+    </div>
+
     <div class="tagline">
       মাটির গন্ধ, বাংলার সুর
     </div>
+
   </div>
 
-  <div class="online">
-    👥 <span id="online">12</span> জন শুনছেন
+  <div class="menu">
+
+    <a href="#">
+      হোম
+    </a>
+
+    <a href="#songs">
+      গান
+    </a>
+
   </div>
+
+</div>
 
 </header>
 
 
-<!-- GRAM BANGLAR JHUMUR PHOTO -->
 
-<div class="cover"></div>
+<!-- EMPTY HOME AREA -->
 
+<section class="hero">
 
-<!-- SONG -->
+<div class="hero-content">
 
-<div class="song-info">
+  <div class="small">
+    বাংলা লোকসংগীত
+  </div>
 
-  <h1 id="songTitle">
-    মাটির টানে
+  <h1>
+    ঝুমুর সুর
   </h1>
 
   <p>
-    ঝুমুর গান
+    গ্রামবাংলার মাটির গন্ধ,
+    ঝুমুরের সুর আর বাংলার লোকসংগীত
+    একসাথে উপভোগ করুন।
   </p>
 
   <button
-    class="favorite"
-    id="favorite"
-    onclick="favorite()">
-    ♡
+    class="play-main"
+    onclick="playFirstSong()">
+
+    ▶ গান শুনুন
+
   </button>
 
 </div>
 
+</section>
 
-<!-- PROGRESS -->
 
-<div class="progress-box">
 
-  <div class="times">
+<main class="container">
 
-    <span id="currentTime">
-      0:00
-    </span>
+<h2
+  class="heading"
+  id="songs">
 
-    <span id="duration">
-      0:00
-    </span>
+  🎵 ঝুমুর গান
+
+</h2>
+
+
+<!-- ALL SONGS -->
+
+<div
+  class="song-list"
+  id="songList">
+</div>
+
+
+
+<!-- PLAYER -->
+
+<div class="player-box">
+
+  <div
+    class="player-title"
+    id="playerTitle">
+
+    একটি গান নির্বাচন করুন
 
   </div>
 
-  <input
-    type="range"
-    id="progress"
-    min="0"
-    max="100"
-    value="0"
-  >
+
+  <!-- MP3 PLAYER -->
+
+  <audio
+    id="audioPlayer"
+    class="audio-player"
+    controls>
+  </audio>
+
+
+  <!-- YOUTUBE PLAYER -->
+
+  <iframe
+    id="youtubePlayer"
+    class="youtube"
+    title="Jhumur Sur YouTube Player"
+    allow="autoplay; encrypted-media; picture-in-picture"
+    allowfullscreen>
+  </iframe>
 
 </div>
 
 
-<!-- CONTROLS -->
-
-<div class="controls">
-
-  <button
-    class="control"
-    onclick="shuffle()">
-    🔀
-  </button>
-
-  <button
-    class="control"
-    onclick="previous()">
-    ⏮
-  </button>
-
-  <button
-    class="play"
-    id="playButton"
-    onclick="togglePlay()">
-    ▶
-  </button>
-
-  <button
-    class="control"
-    onclick="next()">
-    ⏭
-  </button>
-
-  <button
-    class="control"
-    id="repeatButton"
-    onclick="repeat()">
-    🔁
-  </button>
-
-</div>
+</main>
 
 
-<!-- VOLUME -->
 
-<div class="volume">
-
-  <span>🔊</span>
-
-  <input
-    type="range"
-    id="volume"
-    min="0"
-    max="1"
-    step="0.01"
-    value=".8"
-  >
-
-</div>
-
-
-<div class="line"></div>
-
+<!-- FOOTER -->
 
 <footer>
 
   Made with ❤️ for Bengali Folk Music
+
   <br><br>
 
-  <b>Made by HirakMahata</b>
+  <b>
+    Made by Hirak Mahata
+  </b>
 
 </footer>
 
-</div>
-
-
-<audio id="audio"></audio>
 
 
 <script>
 
+/*
+==================================================
+MP3 + YOUTUBE SONGS
+==================================================
+*/
+
+
 const songs = [
-  "song1.mp3",
-  "song2.mp3",
-  "song3.mp3",
-  "song4.mp3",
-  "song5.mp3",
-  "song6.mp3",
-  "song7.mp3",
-  "song8.mp3",
-  "song9.mp3",
-  "song10.mp3",
-  "song11.mp3",
-  "song12.mp3",
-  "song13.mp3",
-  "song14.mp3"
+
+  /* ---------- OLD MP3 SONGS ---------- */
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ১",
+    artist:"ঝুমুর সুর",
+    file:"song1.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ২",
+    artist:"ঝুমুর সুর",
+    file:"song2.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৩",
+    artist:"ঝুমুর সুর",
+    file:"song3.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৪",
+    artist:"ঝুমুর সুর",
+    file:"song4.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৫",
+    artist:"ঝুমুর সুর",
+    file:"song5.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৬",
+    artist:"ঝুমুর সুর",
+    file:"song6.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৭",
+    artist:"ঝুমুর সুর",
+    file:"song7.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৮",
+    artist:"ঝুমুর সুর",
+    file:"song8.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ৯",
+    artist:"ঝুমুর সুর",
+    file:"song9.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ১০",
+    artist:"ঝুমুর সুর",
+    file:"song10.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ১১",
+    artist:"ঝুমুর সুর",
+    file:"song11.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ১২",
+    artist:"ঝুমুর সুর",
+    file:"song12.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ১৩",
+    artist:"ঝুমুর সুর",
+    file:"song13.mp3"
+  },
+
+  {
+    type:"mp3",
+    title:"আমার MP3 গান ১৪",
+    artist:"ঝুমুর সুর",
+    file:"song14.mp3"
+  },
+
+
+  /* ---------- YOUTUBE SONGS ---------- */
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১",
+    artist:"ঝুমুর সুর",
+    youtubeId:"82cTuqdbafk"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ২",
+    artist:"ঝুমুর সুর",
+    youtubeId:"WgwJfCh4MP4"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৩",
+    artist:"ঝুমুর সুর",
+    youtubeId:"rhH88N-OGXQ"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৪",
+    artist:"ঝুমুর সুর",
+    youtubeId:"ozI_OFD0HSs"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৫",
+    artist:"ঝুমুর সুর",
+    youtubeId:"QsHMXuBoglo"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৬",
+    artist:"ঝুমুর সুর",
+    youtubeId:"Dw5C7HFjUrk"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৭",
+    artist:"ঝুমুর সুর",
+    youtubeId:"bB8Aa2idsKs"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৮",
+    artist:"ঝুমুর সুর",
+    youtubeId:"3qAOOof2xkg"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ৯",
+    artist:"ঝুমুর সুর",
+    youtubeId:"DbqGOFmGD9A"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১০",
+    artist:"ঝুমুর সুর",
+    youtubeId:"ohIpXRVzpZA"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১১",
+    artist:"ঝুমুর সুর",
+    youtubeId:"_wSkIHsLO_Y"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১২",
+    artist:"ঝুমুর সুর",
+    youtubeId:"SJEsSG7DNyY"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৩",
+    artist:"ঝুমুর সুর",
+    youtubeId:"6k7TU8dRyHs"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৪",
+    artist:"ঝুমুর সুর",
+    youtubeId:"Bu-8VLIhGnA"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৫",
+    artist:"ঝুমুর সুর",
+    youtubeId:"Afmk2qltj04"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৬",
+    artist:"ঝুমুর সুর",
+    youtubeId:"7W1_7vJjz88"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৭",
+    artist:"ঝুমুর সুর",
+    youtubeId:"xoZlFwIIIes"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৮",
+    artist:"ঝুমুর সুর",
+    youtubeId:"E1pVGHHMKZs"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ১৯",
+    artist:"ঝুমুর সুর",
+    youtubeId:"z4mjKbTKMF0"
+  },
+
+  {
+    type:"youtube",
+    title:"YouTube গান ২০",
+    artist:"ঝুমুর সুর",
+    youtubeId:"TvH8PuKBKX8"
+  }
+
 ];
 
-let currentSong = 0;
-let repeatMode = false;
-
-const audio =
-document.getElementById("audio");
-
-const playButton =
-document.getElementById("playButton");
-
-const progress =
-document.getElementById("progress");
-
-const currentTime =
-document.getElementById("currentTime");
-
-const duration =
-document.getElementById("duration");
-
-const volume =
-document.getElementById("volume");
-
-function formatTime(seconds){
-
-  if(!Number.isFinite(seconds))
-    return "0:00";
-
-  const min =
-  Math.floor(seconds / 60);
-
-  const sec =
-  Math.floor(seconds % 60)
-  .toString()
-  .padStart(2,"0");
-
-  return min + ":" + sec;
-}
 
 
-function loadSong(){
+/*
+==================================================
+ELEMENTS
+==================================================
+*/
 
-  audio.src =
-  songs[currentSong];
+const songList =
+document.getElementById("songList");
 
-  progress.value = 0;
+const audioPlayer =
+document.getElementById("audioPlayer");
 
-  currentTime.textContent =
-  "0:00";
+const youtubePlayer =
+document.getElementById("youtubePlayer");
 
-  duration.textContent =
-  "0:00";
-
-  audio.load();
-}
-
-
-function playSong(){
-
-  audio.play()
-  .then(()=>{
-    playButton.textContent = "❚❚";
-  })
-  .catch(()=>{
-    playButton.textContent = "▶";
-  });
-}
+const playerTitle =
+document.getElementById("playerTitle");
 
 
-function pauseSong(){
 
-  audio.pause();
+/*
+==================================================
+CREATE SONG LIST
+==================================================
+*/
 
-  playButton.textContent =
-  "▶";
-}
+songs.forEach((song,index)=>{
+
+  const item =
+  document.createElement("div");
+
+  item.className = "song";
+
+  item.innerHTML = `
+
+    <div class="song-left">
+
+      <div class="number">
+        ${index + 1}
+      </div>
+
+      <div>
+
+        <div class="title">
+          ${song.title}
+        </div>
+
+        <div class="artist">
+          ${song.artist}
+        </div>
+
+      </div>
+
+    </div>
+
+    <div class="play-icon">
+      ▶
+    </div>
+
+  `;
 
 
-function togglePlay(){
+  item.onclick =
+  function(){
 
-  if(audio.paused)
-    playSong();
-  else
-    pauseSong();
+    playSong(index);
 
-}
+  };
 
 
-function next(){
+  songList.appendChild(item);
 
-  currentSong++;
-
-  if(currentSong >= songs.length)
-    currentSong = 0;
-
-  loadSong();
-  playSong();
-}
+});
 
 
-function previous(){
 
-  currentSong--;
+/*
+==================================================
+PLAY SONG
+==================================================
+*/
 
-  if(currentSong < 0)
-    currentSong = songs.length - 1;
+function playSong(index){
 
-  loadSong();
-  playSong();
-}
+  const song =
+  songs[index];
 
 
-function shuffle(){
+  playerTitle.innerText =
+  "🎵 " + song.title;
 
-  let random;
 
-  do{
-    random =
-    Math.floor(
-      Math.random() * songs.length
-    );
+  /*
+  MP3
+  */
+
+  if(song.type === "mp3"){
+
+    youtubePlayer.style.display =
+    "none";
+
+    youtubePlayer.src = "";
+
+
+    audioPlayer.style.display =
+    "block";
+
+
+    audioPlayer.src =
+    song.file;
+
+
+    audioPlayer.play()
+    .catch(()=>{});
+
   }
-  while(
-    random === currentSong &&
-    songs.length > 1
-  );
 
-  currentSong = random;
 
-  loadSong();
-  playSong();
+  /*
+  YOUTUBE
+  */
+
+  else{
+
+    audioPlayer.pause();
+
+    audioPlayer.src = "";
+
+    audioPlayer.style.display =
+    "none";
+
+
+    youtubePlayer.style.display =
+    "block";
+
+
+    youtubePlayer.src =
+      "https://www.youtube.com/embed/"
+      + song.youtubeId
+      + "?autoplay=1&rel=0";
+
+  }
+
 }
 
 
-function repeat(){
 
-  repeatMode =
-  !repeatMode;
+/*
+==================================================
+FIRST SONG
+==================================================
+*/
+
+function playFirstSong(){
+
+  playSong(0);
+
 
   document
-  .getElementById("repeatButton")
-  .style.color =
-  repeatMode
-  ? "#f2a91f"
-  : "#eee";
+  .getElementById("songs")
+  .scrollIntoView({
+    behavior:"smooth"
+  });
+
 }
-
-
-function favorite(){
-
-  const heart =
-  document.getElementById("favorite");
-
-  heart.classList.toggle("active");
-
-  heart.textContent =
-  heart.classList.contains("active")
-  ? "♥"
-  : "♡";
-}
-
-
-audio.addEventListener(
-"loadedmetadata",
-()=>{
-
-  duration.textContent =
-  formatTime(audio.duration);
-
-});
-
-
-audio.addEventListener(
-"timeupdate",
-()=>{
-
-  currentTime.textContent =
-  formatTime(audio.currentTime);
-
-  if(audio.duration){
-
-    progress.value =
-    (audio.currentTime /
-    audio.duration) * 100;
-
-  }
-
-});
-
-
-progress.addEventListener(
-"input",
-()=>{
-
-  if(audio.duration){
-
-    audio.currentTime =
-    (progress.value / 100)
-    * audio.duration;
-
-  }
-
-});
-
-
-volume.addEventListener(
-"input",
-()=>{
-
-  audio.volume =
-  volume.value;
-
-});
-
-
-audio.addEventListener(
-"ended",
-()=>{
-
-  if(repeatMode){
-
-    audio.currentTime = 0;
-
-    playSong();
-
-  }else{
-
-    next();
-
-  }
-
-});
-
-
-audio.volume = .8;
-
-loadSong();
 
 </script>
 
