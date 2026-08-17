@@ -2,7 +2,7 @@
 <html lang="bn">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
 
 <title>ঝুমুর সুর</title>
 
@@ -14,280 +14,256 @@
 }
 
 body{
-  min-height:100vh;
-  background:#080808;
+  background:#070707;
   color:#fff;
   font-family:Arial,"Noto Sans Bengali",sans-serif;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  overflow:hidden;
+  min-height:100vh;
 }
-
-/* MAIN */
 
 .app{
   width:100%;
-  max-width:620px;
-  min-height:100vh;
-  padding:28px 22px 25px;
-
-  display:flex;
-  flex-direction:column;
-  align-items:center;
+  max-width:1000px;
+  margin:auto;
+  padding:25px 22px 35px;
 }
 
-/* TOP */
+/* HEADER */
 
-.top{
-  width:100%;
+header{
   display:flex;
   justify-content:space-between;
   align-items:center;
-  margin-bottom:28px;
+  margin-bottom:25px;
 }
 
 .logo{
-  color:#f4b62c;
-  font-size:22px;
+  color:#f2a91f;
+  font-size:30px;
   font-weight:bold;
-  letter-spacing:.5px;
+}
+
+.tagline{
+  color:#aaa;
+  font-size:14px;
+  margin-top:5px;
 }
 
 .online{
-  color:#9b9b9b;
+  color:#ddd;
   font-size:14px;
 }
 
 .online span{
-  color:#f4b62c;
+  color:#f2a91f;
 }
 
-/* ARTWORK */
+/* COVER */
 
-.artwork{
-  width:min(82vw,430px);
-  aspect-ratio:1/1;
-
-  border-radius:24px;
+.cover{
+  width:100%;
+  aspect-ratio:16/11;
+  border-radius:25px;
+  overflow:hidden;
 
   background:
     linear-gradient(
-      145deg,
+      to bottom,
       rgba(0,0,0,.05),
-      rgba(0,0,0,.3)
+      rgba(0,0,0,.25)
     ),
-    url("https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1000&q=85")
-    center/cover;
+    url("jhumur-cover.png") center/cover;
+
+  border:1px solid #5b4217;
 
   box-shadow:
-    0 25px 70px rgba(0,0,0,.75),
-    0 0 0 1px rgba(255,255,255,.05);
-
-  position:relative;
-  overflow:hidden;
-}
-
-.artwork:after{
-  content:"♫";
-  position:absolute;
-  bottom:20px;
-  right:22px;
-
-  width:48px;
-  height:48px;
-
-  border-radius:50%;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  background:rgba(0,0,0,.55);
-  backdrop-filter:blur(8px);
-
-  color:#f4b62c;
-  font-size:25px;
+    0 25px 80px rgba(0,0,0,.8);
 }
 
 /* SONG INFO */
 
-.info{
-  width:min(82vw,430px);
-  margin-top:22px;
+.song-info{
+  text-align:center;
+  margin-top:25px;
 }
 
-.song-name{
-  font-size:25px;
-  font-weight:700;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
+.song-info h1{
+  font-family:Georgia,"Noto Serif Bengali",serif;
+  font-size:42px;
+  color:#f5eee2;
 }
 
-.artist{
-  margin-top:7px;
-  color:#929292;
-  font-size:15px;
+.song-info p{
+  color:#f2a91f;
+  font-size:19px;
+  margin-top:8px;
+}
+
+.favorite{
+  margin-top:15px;
+  border:0;
+  background:none;
+  color:#eee;
+  font-size:32px;
+  cursor:pointer;
+}
+
+.favorite.active{
+  color:#f2a91f;
 }
 
 /* PROGRESS */
 
-.progress-area{
-  width:min(82vw,430px);
-  margin-top:25px;
+.progress-box{
+  margin-top:20px;
 }
 
-.time{
+.times{
   display:flex;
   justify-content:space-between;
-  color:#777;
-  font-size:12px;
+  color:#aaa;
+  font-size:13px;
   margin-bottom:8px;
 }
 
-#progress{
+input[type="range"]{
   width:100%;
-  height:4px;
-  accent-color:#f4b62c;
+  accent-color:#f2a91f;
   cursor:pointer;
 }
 
 /* CONTROLS */
 
 .controls{
-  width:min(82vw,430px);
-
   display:flex;
-  justify-content:center;
   align-items:center;
-
-  gap:28px;
-  margin-top:25px;
+  justify-content:center;
+  gap:55px;
+  margin-top:30px;
 }
 
 .control{
-  border:none;
   background:none;
-  color:#ddd;
-  font-size:22px;
+  border:0;
+  color:#eee;
+  font-size:32px;
   cursor:pointer;
-
-  transition:.2s;
 }
 
 .control:hover{
-  color:#f4b62c;
-  transform:scale(1.1);
+  color:#f2a91f;
 }
 
 .play{
-  width:65px;
-  height:65px;
-
-  border:none;
+  width:85px;
+  height:85px;
   border-radius:50%;
 
-  background:#f4b62c;
-  color:#080808;
+  border:2px solid #f2a91f;
+  background:#111;
 
-  font-size:25px;
+  color:#f2a91f;
+  font-size:30px;
+
   cursor:pointer;
-
-  display:flex;
-  align-items:center;
-  justify-content:center;
-
-  box-shadow:0 10px 35px rgba(244,182,44,.2);
-
-  transition:.2s;
 }
 
 .play:hover{
-  transform:scale(1.06);
+  background:#f2a91f;
+  color:#111;
 }
 
-/* BOTTOM */
+/* VOLUME */
 
-.bottom{
-  width:min(82vw,430px);
-
+.volume{
   display:flex;
-  justify-content:space-between;
   align-items:center;
-
-  margin-top:28px;
+  justify-content:center;
+  gap:15px;
+  margin-top:35px;
 }
 
-.bottom button{
-  border:none;
-  background:none;
-  color:#777;
-  font-size:20px;
-  cursor:pointer;
+.volume span{
+  font-size:25px;
 }
 
-.bottom button:hover{
-  color:#f4b62c;
+/* DECORATION */
+
+.line{
+  height:1px;
+  background:#5c4217;
+  margin:45px 0 25px;
+  position:relative;
 }
 
-#volume{
-  width:100px;
-  accent-color:#f4b62c;
+.line:after{
+  content:"✿";
+  position:absolute;
+  left:50%;
+  top:-14px;
+  transform:translateX(-50%);
+  background:#070707;
+  padding:0 18px;
+  color:#f2a91f;
+  font-size:22px;
 }
 
 /* FOOTER */
 
-.footer{
-  margin-top:auto;
-  padding-top:30px;
-
-  color:#555;
-  font-size:12px;
+footer{
   text-align:center;
+  color:#aaa;
+  font-size:14px;
 }
 
-.footer b{
-  color:#8a6a25;
+footer b{
+  color:#f2a91f;
 }
 
 /* MOBILE */
 
-@media(max-width:500px){
+@media(max-width:600px){
 
   .app{
-    padding:22px 18px;
+    padding:18px 14px 30px;
   }
 
-  .artwork{
-    width:86vw;
-    max-width:390px;
+  .logo{
+    font-size:24px;
+  }
+
+  .tagline{
+    font-size:11px;
+  }
+
+  .online{
+    font-size:12px;
+  }
+
+  .cover{
+    aspect-ratio:1/1;
     border-radius:20px;
   }
 
-  .info,
-  .progress-area,
-  .controls,
-  .bottom{
-    width:86vw;
-    max-width:390px;
+  .song-info h1{
+    font-size:32px;
   }
 
-  .song-name{
-    font-size:22px;
+  .song-info p{
+    font-size:16px;
   }
 
   .controls{
-    gap:22px;
+    gap:25px;
+  }
+
+  .control{
+    font-size:25px;
   }
 
   .play{
-    width:60px;
-    height:60px;
-  }
-
-  #volume{
-    width:80px;
+    width:70px;
+    height:70px;
+    font-size:25px;
   }
 }
 </style>
@@ -297,139 +273,144 @@ body{
 
 <div class="app">
 
-  <!-- TOP -->
+<header>
 
-  <div class="top">
-
-    <div class="logo">
-      ♫ ঝুমুর সুর
+  <div>
+    <div class="logo">♫ ঝুমুর সুর</div>
+    <div class="tagline">
+      মাটির গন্ধ, বাংলার সুর
     </div>
+  </div>
 
-    <div class="online">
-      <span>●</span>
-      <span id="onlineCount">1</span> online
-    </div>
+  <div class="online">
+    👥 <span id="online">12</span> জন শুনছেন
+  </div>
+
+</header>
+
+
+<!-- GRAM BANGLAR JHUMUR PHOTO -->
+
+<div class="cover"></div>
+
+
+<!-- SONG -->
+
+<div class="song-info">
+
+  <h1 id="songTitle">
+    মাটির টানে
+  </h1>
+
+  <p>
+    ঝুমুর গান
+  </p>
+
+  <button
+    class="favorite"
+    id="favorite"
+    onclick="favorite()">
+    ♡
+  </button>
+
+</div>
+
+
+<!-- PROGRESS -->
+
+<div class="progress-box">
+
+  <div class="times">
+
+    <span id="currentTime">
+      0:00
+    </span>
+
+    <span id="duration">
+      0:00
+    </span>
 
   </div>
 
+  <input
+    type="range"
+    id="progress"
+    min="0"
+    max="100"
+    value="0"
+  >
 
-  <!-- ARTWORK -->
-
-  <div class="artwork"></div>
-
-
-  <!-- SONG INFO -->
-
-  <div class="info">
-
-    <div class="song-name" id="songName">
-      ঝুমুর সুর
-    </div>
-
-    <div class="artist">
-      Bengali Folk Music
-    </div>
-
-  </div>
+</div>
 
 
-  <!-- PROGRESS -->
+<!-- CONTROLS -->
 
-  <div class="progress-area">
+<div class="controls">
 
-    <div class="time">
-      <span id="current">0:00</span>
-      <span id="total">0:00</span>
-    </div>
+  <button
+    class="control"
+    onclick="shuffle()">
+    🔀
+  </button>
 
-    <input
-      type="range"
-      id="progress"
-      min="0"
-      max="100"
-      value="0"
-    >
+  <button
+    class="control"
+    onclick="previous()">
+    ⏮
+  </button>
 
-  </div>
+  <button
+    class="play"
+    id="playButton"
+    onclick="togglePlay()">
+    ▶
+  </button>
 
+  <button
+    class="control"
+    onclick="next()">
+    ⏭
+  </button>
 
-  <!-- CONTROLS -->
+  <button
+    class="control"
+    id="repeatButton"
+    onclick="repeat()">
+    🔁
+  </button>
 
-  <div class="controls">
-
-    <button
-      class="control"
-      onclick="shuffle()"
-      title="Shuffle"
-    >
-      🔀
-    </button>
-
-    <button
-      class="control"
-      onclick="previous()"
-      title="Previous"
-    >
-      ⏮
-    </button>
-
-    <button
-      class="play"
-      id="play"
-      onclick="togglePlay()"
-    >
-      ▶
-    </button>
-
-    <button
-      class="control"
-      onclick="next()"
-      title="Next"
-    >
-      ⏭
-    </button>
-
-    <button
-      class="control"
-      onclick="repeat()"
-      id="repeat"
-      title="Repeat"
-    >
-      🔁
-    </button>
-
-  </div>
+</div>
 
 
-  <!-- BOTTOM -->
+<!-- VOLUME -->
 
-  <div class="bottom">
+<div class="volume">
 
-    <button onclick="favorite()" id="heart">
-      ♡
-    </button>
+  <span>🔊</span>
 
-    <div>
-      🔊
-      <input
-        type="range"
-        id="volume"
-        min="0"
-        max="1"
-        step="0.01"
-        value=".8"
-      >
-    </div>
+  <input
+    type="range"
+    id="volume"
+    min="0"
+    max="1"
+    step="0.01"
+    value=".8"
+  >
 
-  </div>
+</div>
 
 
-  <!-- FOOTER -->
+<div class="line"></div>
 
-  <div class="footer">
-    Made with ♡ for Bengali Folk Music<br>
-    <b>Made by HirakMahata</b>
-  </div>
+
+<footer>
+
+  Made with ❤️ for Bengali Folk Music
+  <br><br>
+
+  <b>Made by HirakMahata</b>
+
+</footer>
 
 </div>
 
@@ -438,10 +419,6 @@ body{
 
 
 <script>
-
-/* =========================
-   YOUR SONGS
-========================= */
 
 const songs = [
   "song1.mp3",
@@ -460,185 +437,127 @@ const songs = [
   "song14.mp3"
 ];
 
-
-/* =========================
-   VARIABLES
-========================= */
-
 let currentSong = 0;
 let repeatMode = false;
 
 const audio =
-  document.getElementById("audio");
+document.getElementById("audio");
 
 const playButton =
-  document.getElementById("play");
-
-const songName =
-  document.getElementById("songName");
+document.getElementById("playButton");
 
 const progress =
-  document.getElementById("progress");
+document.getElementById("progress");
 
-const current =
-  document.getElementById("current");
+const currentTime =
+document.getElementById("currentTime");
 
-const total =
-  document.getElementById("total");
+const duration =
+document.getElementById("duration");
 
 const volume =
-  document.getElementById("volume");
-
-
-/* =========================
-   FORMAT TIME
-========================= */
+document.getElementById("volume");
 
 function formatTime(seconds){
 
-  if(!Number.isFinite(seconds)){
+  if(!Number.isFinite(seconds))
     return "0:00";
-  }
 
   const min =
-    Math.floor(seconds / 60);
+  Math.floor(seconds / 60);
 
   const sec =
-    Math.floor(seconds % 60)
-    .toString()
-    .padStart(2,"0");
+  Math.floor(seconds % 60)
+  .toString()
+  .padStart(2,"0");
 
   return min + ":" + sec;
 }
 
 
-/* =========================
-   LOAD SONG
-========================= */
-
 function loadSong(){
 
   audio.src =
-    songs[currentSong];
-
-  songName.textContent =
-    "ঝুমুর সুর";
+  songs[currentSong];
 
   progress.value = 0;
 
-  current.textContent =
-    "0:00";
+  currentTime.textContent =
+  "0:00";
 
-  total.textContent =
-    "0:00";
+  duration.textContent =
+  "0:00";
 
   audio.load();
 }
 
 
-/* =========================
-   PLAY
-========================= */
-
 function playSong(){
 
   audio.play()
-    .then(function(){
-
-      playButton.textContent =
-        "❚❚";
-
-    })
-    .catch(function(){
-
-      songName.textContent =
-        "Play চাপুন";
-
-    });
+  .then(()=>{
+    playButton.textContent = "❚❚";
+  })
+  .catch(()=>{
+    playButton.textContent = "▶";
+  });
 }
 
-
-/* =========================
-   PAUSE
-========================= */
 
 function pauseSong(){
 
   audio.pause();
 
   playButton.textContent =
-    "▶";
+  "▶";
 }
 
-
-/* =========================
-   TOGGLE
-========================= */
 
 function togglePlay(){
 
-  if(audio.paused){
-
+  if(audio.paused)
     playSong();
-
-  }else{
-
+  else
     pauseSong();
 
-  }
 }
 
-
-/* =========================
-   NEXT
-========================= */
 
 function next(){
 
   currentSong++;
 
-  if(currentSong >= songs.length){
+  if(currentSong >= songs.length)
     currentSong = 0;
-  }
 
   loadSong();
   playSong();
 }
 
-
-/* =========================
-   PREVIOUS
-========================= */
 
 function previous(){
 
   currentSong--;
 
-  if(currentSong < 0){
+  if(currentSong < 0)
     currentSong = songs.length - 1;
-  }
 
   loadSong();
   playSong();
 }
 
-
-/* =========================
-   SHUFFLE
-========================= */
 
 function shuffle(){
 
   let random;
 
   do{
-
     random =
-      Math.floor(
-        Math.random() * songs.length
-      );
-
-  }while(
+    Math.floor(
+      Math.random() * songs.length
+    );
+  }
+  while(
     random === currentSong &&
     songs.length > 1
   );
@@ -650,159 +569,105 @@ function shuffle(){
 }
 
 
-/* =========================
-   REPEAT
-========================= */
-
 function repeat(){
 
-  repeatMode = !repeatMode;
+  repeatMode =
+  !repeatMode;
 
-  const button =
-    document.getElementById("repeat");
-
-  button.style.color =
-    repeatMode
-      ? "#f4b62c"
-      : "#ddd";
+  document
+  .getElementById("repeatButton")
+  .style.color =
+  repeatMode
+  ? "#f2a91f"
+  : "#eee";
 }
 
-
-/* =========================
-   FAVORITE
-========================= */
 
 function favorite(){
 
   const heart =
-    document.getElementById("heart");
+  document.getElementById("favorite");
 
-  if(heart.textContent === "♡"){
+  heart.classList.toggle("active");
 
-    heart.textContent = "♥";
-    heart.style.color = "#f4b62c";
-
-  }else{
-
-    heart.textContent = "♡";
-    heart.style.color = "#777";
-
-  }
+  heart.textContent =
+  heart.classList.contains("active")
+  ? "♥"
+  : "♡";
 }
 
 
-/* =========================
-   SONG END
-========================= */
+audio.addEventListener(
+"loadedmetadata",
+()=>{
+
+  duration.textContent =
+  formatTime(audio.duration);
+
+});
+
 
 audio.addEventListener(
-  "ended",
-  function(){
+"timeupdate",
+()=>{
 
-    if(repeatMode){
+  currentTime.textContent =
+  formatTime(audio.currentTime);
 
-      audio.currentTime = 0;
+  if(audio.duration){
 
-      playSong();
-
-    }else{
-
-      next();
-
-    }
+    progress.value =
+    (audio.currentTime /
+    audio.duration) * 100;
 
   }
-);
 
+});
 
-/* =========================
-   METADATA
-========================= */
-
-audio.addEventListener(
-  "loadedmetadata",
-  function(){
-
-    total.textContent =
-      formatTime(audio.duration);
-
-  }
-);
-
-
-/* =========================
-   PROGRESS
-========================= */
-
-audio.addEventListener(
-  "timeupdate",
-  function(){
-
-    if(audio.duration){
-
-      progress.value =
-        (audio.currentTime /
-        audio.duration) * 100;
-
-    }
-
-    current.textContent =
-      formatTime(audio.currentTime);
-
-  }
-);
-
-
-/* =========================
-   SEEK
-========================= */
 
 progress.addEventListener(
-  "input",
-  function(){
+"input",
+()=>{
 
-    if(audio.duration){
+  if(audio.duration){
 
-      audio.currentTime =
-        (progress.value / 100) *
-        audio.duration;
-
-    }
+    audio.currentTime =
+    (progress.value / 100)
+    * audio.duration;
 
   }
-);
 
+});
 
-/* =========================
-   VOLUME
-========================= */
 
 volume.addEventListener(
-  "input",
-  function(){
+"input",
+()=>{
 
-    audio.volume =
-      volume.value;
+  audio.volume =
+  volume.value;
+
+});
+
+
+audio.addEventListener(
+"ended",
+()=>{
+
+  if(repeatMode){
+
+    audio.currentTime = 0;
+
+    playSong();
+
+  }else{
+
+    next();
 
   }
-);
 
+});
 
-/* =========================
-   ONLINE DEMO
-========================= */
-
-let online =
-  Math.floor(Math.random() * 8) + 3;
-
-document.getElementById(
-  "onlineCount"
-).textContent = online;
-
-
-/* =========================
-   START
-========================= */
 
 audio.volume = .8;
 
